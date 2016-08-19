@@ -10,7 +10,7 @@ $messaging = $json_object->entry{0}->messaging{0};
 $hub_verify_token = "nande"; // 適当なトークンを自分で作成
 
 if(isset($_GET['hub_verify_token'])){
-if($_GET['hub_verify_token'] ==    getenv('FACEBOOK_PAGE_VERIFY_TOKEN')  ) {
+if($_GET['hub_verify_token'] ==    $hub_verify_token  ) {
     echo $_GET["hub_challenge"];
 } else {
     echo 'error';
