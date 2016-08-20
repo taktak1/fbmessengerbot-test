@@ -37,8 +37,19 @@ $app->post('/callback', function (Request $request) use ($app) {
         foreach ($obj['messaging'] as $m) {
             $app['monolog']->addInfo(sprintf('messaging: %s', json_encode($m)));
             $from = $m['sender']['id'];
-            $text = $m['message']['text'];
+            
+            $text = "" ;
+            $m['message']['text'];
+            if( isset( $m['message']['text'] ) ){
+                $text = $m['message']['text'];
+            }
 
+            $attach = "" ;
+            if( isset( $m['message']['attachments'] ) ){
+                if( isset( $m['message']['attachments']['payload']['url'] ) ){
+                    $attach = $m['message']['attachments']['payload']['url'] ;
+                }
+            }
 
 $api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 file_get_contents( $api  );
