@@ -42,7 +42,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                 $json = [
                     'recipient' => [
-                        'id' => $from, 
+                        'id' => intval( $from ), 
                     ],
                     'message' => [
                         'text' => 'マカロンはお金持ちのお菓子' , 
