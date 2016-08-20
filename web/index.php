@@ -17,7 +17,6 @@ $app->before(function (Request $request) use($bot) {
 });
 
 $app->get('/callback', function (Request $request) use ($app) {
-    echo "***get";
     $response = "";
     if ($request->query->get('hub_verify_token') === getenv('FACEBOOK_PAGE_VERIFY_TOKEN')) {
         $response = $request->query->get('hub_challenge');
@@ -39,9 +38,13 @@ $app->post('/callback', function (Request $request) use ($app) {
             $app['monolog']->addInfo(sprintf('messaging: %s', json_encode($m)));
             $from = $m['sender']['id'];
             $text = $m['message']['text'];
-    echo "$from " .  $from   ;
-    echo "$text " .  $text   ;
 
+
+$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
+file_get_contents( $api  );
+
+
+/*
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                 $json = [
@@ -54,6 +57,8 @@ $app->post('/callback', function (Request $request) use ($app) {
                 ];
                 $client->request('POST', $path, ['json' => $json]);
             }
+            */
+            
         }
 
     }
