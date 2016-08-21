@@ -8,6 +8,10 @@
     },
     "FACEBOOK_PAGE_VERIFY_TOKEN": {
       "description": "Facebook Page Verify Token"
+    },
+
+    "api_key": {
+      "description": "docomo api key"
     }
   }
 }
