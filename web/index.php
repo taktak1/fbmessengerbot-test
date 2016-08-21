@@ -71,7 +71,7 @@ $app->post('/callback', function (Request $request) use ($app) {
 //$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 //file_get_contents( $api  );
 
-$message = get_rmr_single($url,     getenv('api_key')    , $text);
+$message = get_rmr_single($url,     getenv('rmr_key')    , $text);
 
 
 
