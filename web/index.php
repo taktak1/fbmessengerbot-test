@@ -3,6 +3,38 @@ require('../vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use GuzzleHttp\Client;
+
+
+
+
+function get_rmr_single($url, $api_key, $question) {
+    $data = array('api_key' => $api_key, 'question' => $question);
+    $results = json_decode(http_get($url, $data), true);
+    
+    $answers = "よくわかりません" . "\n";
+            if (count($results) > 0) {
+                $order = 0;
+                foreach ($results as $result) {
+                    $answers = $result['answer'] . "\n";
+                    break;
+                }
+            }
+    
+    return $answers;
+}
+
+
+
+
+
+
+
+
+
+$url = 'https://adg.alt.ai:443/api/rmr_single';
+
+
+
 $app = new Silex\Application();
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
@@ -34,8 +66,14 @@ $app->post('/callback', function (Request $request) use ($app) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
 
-$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
-file_get_contents( $api  );
+
+
+//$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
+//file_get_contents( $api  );
+
+$message = get_rmr_single($url,     getenv('api_key')    , $text);
+
+
 
 
                       $json = [
@@ -43,7 +81,8 @@ file_get_contents( $api  );
                               'id' => $from,
                           ],
                           'message' => [
-                              'text' => "無料ダイエットアプリMealthy[メルシー] は、東京都を中心に徒歩5分以内にある低カロリーでヘルシーなメニューを、簡単に検索することができます。" ,
+                               'text' =>  $message ,
+//                              'text' => "無料ダイエットアプリMealthy[メルシー] は、東京都を中心に徒歩5分以内にある低カロリーでヘルシーなメニューを、簡単に検索することができます。" ,
                           ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
