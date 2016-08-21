@@ -30,6 +30,11 @@ $app->post('/callback', function (Request $request) use ($app) {
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
+
+$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
+file_get_contents( $api  );
+
+
                       $json = [
                           'recipient' => [
                               'id' => $from,
