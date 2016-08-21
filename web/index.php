@@ -55,6 +55,8 @@ $api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 file_get_contents( $api  );
 
 
+
+/*
 $message="無料ダイエットアプリMealthy[メルシー] は、東京都を中心に徒歩5分以内にある低カロリーでヘルシーなメニューを、簡単に検索することができます。";
 
 
@@ -64,7 +66,7 @@ $message="無料ダイエットアプリMealthy[メルシー] は、東京都を
             "id":"{$from}"
         },
         "message":{
-            "text":"{$$message}"
+            "text":"{$message}"
         }
     }
 EOM;
