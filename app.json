@@ -10,7 +10,10 @@
       "description": "Facebook Page Verify Token"
     },
 
-    "api_key": {
+    "rmr_key": {
+      "description": "rmr api key"
+    },
+    "docomo_key": {
       "description": "docomo api key"
     }
   }
