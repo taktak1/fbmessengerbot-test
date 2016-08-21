@@ -27,6 +27,9 @@ $app->post('/callback', function (Request $request) use ($app) {
             $app['monolog']->addInfo(sprintf('messaging: %s', json_encode($m)));
             $from = $m['sender']['id'];
             $text = $m['message']['text'];
+            
+            if(    $from    == '1464024910511356'  ){  continue;  }
+            
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
