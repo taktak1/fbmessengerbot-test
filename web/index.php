@@ -55,7 +55,7 @@ $api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 file_get_contents( $api  );
 
 
-$text="マカロンはお金持ちのお菓子";
+$message="無料ダイエットアプリMealthy[メルシー] は、東京都を中心に徒歩5分以内にある低カロリーでヘルシーなメニューを、簡単に検索することができます。";
 
 
     $post = <<< EOM
@@ -64,7 +64,7 @@ $text="マカロンはお金持ちのお菓子";
             "id":"{$from}"
         },
         "message":{
-            "text":"{$text}"
+            "text":"{$$message}"
         }
     }
 EOM;
