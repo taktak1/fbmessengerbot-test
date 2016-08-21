@@ -55,6 +55,34 @@ $api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 file_get_contents( $api  );
 
 
+$text="マカロンはお金持ちのお菓子";
+
+
+    $post = <<< EOM
+    {
+        "recipient":{
+            "id":"{$from}"
+        },
+        "message":{
+            "text":"{$text}"
+        }
+    }
+EOM;
+
+
+
+    $url = "https://graph.facebook.com/v2.6/me/messages?access_token=".    getenv('FACEBOOK_PAGE_ACCESS_TOKEN') ;
+    $headers = array(
+            "Content-Type: application/json"
+    );
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    $output = curl_exec($curl);
+    
 /*
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
