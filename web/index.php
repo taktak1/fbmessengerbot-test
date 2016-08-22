@@ -81,25 +81,25 @@ $app->post('/callback', function (Request $request) use ($app) {
             $app['monolog']->addInfo(sprintf('messaging: %s', json_encode($m)));
             $from = $m['sender']['id'];
             $text = $m['message']['text'];
-            
+            $attachment = $m['message']['attachment']['payload']['url'];
+
+
             if(    $from    == '1464024910511356'  ){  continue;  }
+            
+            if ($attachment) {
+                
+            }
+
+            
             
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
-
-
-
 //$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 //file_get_contents( $api  );
 
-
 $url = 'https://adg.alt.ai:443/api/rmr_single';
-
 $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
-
-
-
 
                       $json = [
                           'recipient' => [
@@ -111,8 +111,6 @@ $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
                           ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
-
-
             }
         }
     }
