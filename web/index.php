@@ -81,7 +81,7 @@ $app->post('/callback', function (Request $request) use ($app) {
             $app['monolog']->addInfo(sprintf('messaging: %s', json_encode($m)));
             $from = $m['sender']['id'];
             $text = $m['message']['text'];
-            $attachment = $m['message']['attachments']['payload']['url'];
+            $attachment = $m['message']['attachments'][0]['payload']['url'];
 
 
             if(    $from    == '1464024910511356'  ){  continue;  }
