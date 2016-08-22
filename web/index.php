@@ -105,7 +105,6 @@ curl_setopt($curl, CURLOPT_POSTFIELDS,$docomo);
 
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_HEADER, true);
 
 $response = curl_exec($curl);
 $header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE); 
