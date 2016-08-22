@@ -114,7 +114,7 @@ $body = substr($response, $header_size);
 $result = json_decode($body, true); 
 curl_close($curl);
 
-$con   = (  $response ." ".   $body  ." ".  $result   ) 
+$con   = (  $response ." ".   $body  ." ".  $result   ) ;
 $con = substr(  $con , 0  , 300   );
 
                        $json = [
@@ -122,7 +122,7 @@ $con = substr(  $con , 0  , 300   );
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =>  ,
+                               'text' => $con ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
