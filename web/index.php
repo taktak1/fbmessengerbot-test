@@ -87,7 +87,16 @@ $app->post('/callback', function (Request $request) use ($app) {
             if(    $from    == '1464024910511356'  ){  continue;  }
             
             if ($attachment) {
-                
+                       $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'text' => "添付ファイル ".$attachment ,
+                               ],
+                      ];
+                      $client->request('POST', $path, ['json' => $json]);
+
             }
 
             
