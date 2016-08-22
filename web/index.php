@@ -112,7 +112,7 @@ $curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concep
 
 curl_setopt($curl, CURLOPT_HEADER, true); 
 curl_setopt($curl, CURLOPT_POST, true);
-curl_setopt($curl, CURLOPT_POSTFIELDS,$post);
+curl_setopt($curl, CURLOPT_POSTFIELDS,$docomo);
 
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
