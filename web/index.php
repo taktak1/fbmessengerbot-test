@@ -94,7 +94,6 @@ $app->post('/callback', function (Request $request) use ($app) {
 
 
 
-
 $docomo["image"]="@/tmp/temp.jpg";
 $docomo["modelName"]="food";
 
@@ -115,12 +114,15 @@ $body = substr($response, $header_size);
 $result = json_decode($body, true); 
 curl_close($curl);
 
+$con   = (  $response ." ".   $body  ." ".  $result   ) 
+$con = substr(  $con , 0  , 300   );
+
                        $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =>  $response . " ".  $header_size    .  $body    ,
+                               'text' =>  ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
