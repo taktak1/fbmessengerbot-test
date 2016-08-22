@@ -92,7 +92,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' => "添付ファイル ".$attachment ,
+                               'text' => "添付ファイル ",
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
@@ -102,9 +102,7 @@ $app->post('/callback', function (Request $request) use ($app) {
     file_put_contents('./tmp/temp.jpg',$data);
 
 
-
-
-
+/*
                        $json = [
                           'recipient' => [
                               'id' => $from,
@@ -118,7 +116,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
-
+*/
 
 
 
