@@ -130,7 +130,7 @@ $result = json_decode($body, true);
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =>  body ,
+                               'text' =>  $body ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
