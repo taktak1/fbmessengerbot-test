@@ -109,11 +109,20 @@ $docomo["image"]="@/tmp/temp.jpg";
 $docomo["modelName"]="food";
 
 $curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('docomo_key')    );
+
+curl_setopt($curl, CURLOPT_HEADER, true); 
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS,$post);
-$result = curl_exec($curl);
 
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HEADER, true);
 
+$response = curl_exec($curl);
+$header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE); 
+$header = substr($response, 0, $header_size); 
+$body = substr($response, $header_size); 
+$result = json_decode($body, true); 
 
 
                        $json = [
@@ -121,12 +130,10 @@ $result = curl_exec($curl);
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =>  $result ,
+                               'text' =>  body ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
-
-
 
 
             }
