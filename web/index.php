@@ -87,22 +87,24 @@ $app->post('/callback', function (Request $request) use ($app) {
             if(    $from    == '1464024910511356'  ){  continue;  }
             
             if ($attachment) {
+                
+                $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
+
                        $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' => "添付ファイル ",
+                               'text' => "添付ファイル ".  $attachment ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
 
 
-    $data = file_get_contents($attachment);
-    file_put_contents('./tmp/temp.jpg',$data);
-
 
 /*
+    $data = file_get_contents($attachment);
+    file_put_contents('./tmp/temp.jpg',$data);
                        $json = [
                           'recipient' => [
                               'id' => $from,
