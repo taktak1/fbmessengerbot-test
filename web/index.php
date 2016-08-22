@@ -102,7 +102,7 @@ $app->post('/callback', function (Request $request) use ($app) {
 
 
     $data = file_get_contents($attachment);
-    file_put_contents('./tmp/temp.jpg',$data);
+    file_put_contents('/tmp/temp.jpg',$data);
 
 /*
                        $json = [
