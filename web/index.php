@@ -90,17 +90,10 @@ $app->post('/callback', function (Request $request) use ($app) {
                 
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
-/*
-                       $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                               'text' => "添付ファイル ".  $attachment ,
-                               ],
-                      ];
-                      $client->request('POST', $path, ['json' => $json]);
-*/
+
+
+
+
 
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
@@ -155,7 +148,6 @@ $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
                           ],
                           'message' => [
                                'text' =>  $message ,
-//                              'text' => "無料ダイエットアプリMealthy[メルシー] は、東京都を中心に徒歩5分以内にある低カロリーでヘルシーなメニューを、簡単に検索することができます。" ,
                           ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
