@@ -98,7 +98,8 @@ $app->post('/callback', function (Request $request) use ($app) {
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
 
-$docomo["image"]="@/tmp/temp.jpg";
+// $docomo["image"]="@/tmp/temp.jpg";
+$docomo["image"]="@temp.jpg";
 $docomo["modelName"]="food";
 
 $curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('docomo_key')    );
