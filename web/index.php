@@ -90,6 +90,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                 
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
+/*
                        $json = [
                           'recipient' => [
                               'id' => $from,
@@ -99,26 +100,31 @@ $app->post('/callback', function (Request $request) use ($app) {
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
-
+*/
 
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
 
-/*
+$docomo["image"]="@/tmp/temp.jpg";
+$docomo["modelName"]="food";
+
+$curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('docomo_key')    );
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS,$post);
+$result = curl_exec($curl);
+
+
+
+
                        $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                                'attachment' => [
-                                    'payload' => [
-                                      'url' => $attachment ,
-                                    ]    
-                                ]
+                               'text' =>  $result ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
-*/
 
 
 
