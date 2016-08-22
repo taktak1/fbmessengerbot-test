@@ -121,7 +121,7 @@ curl_close($curl);
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =  >  $response . " ".  $header_size    .  $body    ,
+                               'text' =>  $response . " ".  $header_size    .  $body    ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
