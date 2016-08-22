@@ -7,6 +7,29 @@ use GuzzleHttp\Client;
 
 
 
+
+function http_get($url, $data) {
+    $params = "";
+    foreach ($data as $k => $v) {
+        $params .= $k . '=' . urlencode($v) . '&';
+    }
+    $url = $url . "?" . $params;
+    $url = rtrim($url, '&');
+    $ch = curl_init();
+    curl_setopt_array($ch, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_SSL_VERIFYPEER => false,
+    ));
+    $contents = curl_exec($ch);
+    return $contents;
+}
+
+
+
+
+
+
 function get_rmr_single($url, $api_key, $question) {
     $data = array('api_key' => $api_key, 'question' => $question);
     $results = json_decode(http_get($url, $data), true);
@@ -31,7 +54,6 @@ function get_rmr_single($url, $api_key, $question) {
 
 
 
-$url = 'https://adg.alt.ai:443/api/rmr_single';
 
 
 
@@ -70,6 +92,9 @@ $app->post('/callback', function (Request $request) use ($app) {
 
 //$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 //file_get_contents( $api  );
+
+
+$url = 'https://adg.alt.ai:443/api/rmr_single';
 
 $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
 
