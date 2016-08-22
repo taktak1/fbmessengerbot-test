@@ -101,10 +101,10 @@ $app->post('/callback', function (Request $request) use ($app) {
                       $client->request('POST', $path, ['json' => $json]);
 
 
-
-/*
     $data = file_get_contents($attachment);
     file_put_contents('./tmp/temp.jpg',$data);
+
+/*
                        $json = [
                           'recipient' => [
                               'id' => $from,
