@@ -83,26 +83,23 @@ $app->post('/callback', function (Request $request) use ($app) {
             $text = $m['message']['text'];
             $attachment = $m['message']['attachments'][0]['payload']['url'];
 
-
             if(    $from    == '1464024910511356'  ){  continue;  }
             
             if ($attachment) {
                 
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
-
-
-
-
-
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
 
- $docomo["image"]="@/tmp/temp.jpg";
+
+
+
+
+// $docomo["image"]="@/tmp/temp.jpg";
 $docomo["modelName"]="food";
 
-//$curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('docomo_key')    );
-$curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('zzz')    );
+$curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('docomo_key')    );
 
 curl_setopt($curl, CURLOPT_HEADER, true); 
 curl_setopt($curl, CURLOPT_POST, true);
@@ -117,14 +114,14 @@ $header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 $header = substr($response, 0, $header_size); 
 $body = substr($response, $header_size); 
 $result = json_decode($body, true); 
-
+curl_close($curl);
 
                        $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =>  $body ,
+                               'text' =  >  $response . " ".  $header_size    .  $body    ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
