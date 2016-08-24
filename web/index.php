@@ -30,6 +30,7 @@ function http_get($url, $data) {
 
 
 
+
 function get_rmr_single($url, $api_key, $question) {
     $data = array('api_key' => $api_key, 'question' => $question);
     $results = json_decode(http_get($url, $data), true);
@@ -89,16 +90,26 @@ $app->post('/callback', function (Request $request) use ($app) {
                 
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
+
+
+
+    $ch = curl_init();
+    curl_setopt_array($ch, array(
+        CURLOPT_URL => "http://updatenews.ddo.jp/docomo.777980328128613287410.php?image=" .  $attachment   ,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_SSL_VERIFYPEER => false,
+    ));
+    $body  = curl_exec(  $ch  );
+
+
+
+/*
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
 
-
-// $docomo["image"]="@/tmp/temp.jpg";
 $docomo["image"]="@/tmp/000.jpg";
 $docomo["modelName"]="food";
-
 $curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('docomo_key')    );
-
 curl_setopt($curl, CURLOPT_HEADER, true); 
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS,$docomo);
@@ -113,7 +124,10 @@ $body = substr($response, $header_size);
 $result = json_decode($body, true); 
 curl_close($curl);
 
-$con   = (  $response ." ".   $body  ." ".  $result   ) ;
+*/
+
+
+$con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
 
                        $json = [
