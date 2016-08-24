@@ -141,7 +141,7 @@ $con = substr(  $con , 0  , 300   );
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' => $con ,
+                               'text' => $body ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
