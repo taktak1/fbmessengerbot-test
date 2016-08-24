@@ -101,10 +101,9 @@ $app->post('/callback', function (Request $request) use ($app) {
 */
 
 $attachment = str_replace('\\', '', $attachment );
-$attachment = urlencode( $attachment );
+//$attachment = urlencode( $attachment );
 
 
-/*
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
 
