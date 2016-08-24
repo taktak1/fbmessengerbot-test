@@ -144,8 +144,6 @@ $con = substr(  $con , 0  , 300   );
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
-
-
             }
 
             
@@ -155,7 +153,6 @@ $con = substr(  $con , 0  , 300   );
 
 //$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
 //file_get_contents( $api  );
-
 $url = 'https://adg.alt.ai:443/api/rmr_single';
 $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
 
@@ -168,6 +165,45 @@ $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
                           ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
+                      
+                      
+                      
+            }else{
+                
+                
+
+
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'attachment' =>  [
+				      'type'  =>  'template'   ,
+				      'payload'  => [
+        "template_type"  =>  "button",
+        "text"    =>    "mealthy",
+        "buttons":[
+	[
+        "type"  =>  "postback",
+        "title" => "メニューを探す"  , 
+        "payload" => "menu1"  ,  ] ,
+	[
+        "type"  =>  "postback",
+        "title" => "栄養アドバイスをもらう"  , 
+        "payload" => "advice2"  ,  ] ,
+	[
+        "type"  =>  "postback",
+        "title" => "診断をする"  , 
+        "payload" => "diagnosis3"  ,  ] ,
+	]
+
+                                 ]
+                            ]
+                       ]
+                      ];
+                      $client->request('POST', $path, ['json' => $json]);
+                
             }
         }
     }
