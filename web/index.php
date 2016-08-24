@@ -101,9 +101,10 @@ $app->post('/callback', function (Request $request) use ($app) {
 */
 
 $attachment = str_replace('\\', '', $attachment );
-//$attachment = urlencode( $attachment );
+$attachment = urlencode( $attachment );
 
-
+    $body = curl_exec(  "http://updatenews.ddo.jp/docomo.777980328128613287410.php?image=".    $attachment  );
+/*
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
 
@@ -123,6 +124,7 @@ $header = substr($response, 0, $header_size);
 $body = substr($response, $header_size); 
 $result = json_decode($body, true); 
 curl_close($curl);
+*/
 
 
 
@@ -130,10 +132,7 @@ curl_close($curl);
 
 
 
-
-
-
-$con   = (    $attachment   ) ;
+$con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
 
                        $json = [
