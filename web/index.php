@@ -183,7 +183,7 @@ $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
 				      'payload'  => [
         "template_type"  =>  "button",
         "text"    =>    "mealthy",
-        "buttons":[
+        "buttons" =>  [
 	[
         "type"  =>  "postback",
         "title" => "メニューを探す"  , 
