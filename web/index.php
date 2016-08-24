@@ -35,7 +35,8 @@ function get_rmr_single($url, $api_key, $question) {
     $data = array('api_key' => $api_key, 'question' => $question);
     $results = json_decode(http_get($url, $data), true);
     
-    $answers = "よくわかりません" . "\n";
+//    $answers = "よくわかりません" . "\n";
+    $answers = "";
             if (count($results) > 0) {
                 $order = 0;
                 foreach ($results as $result) {
@@ -156,6 +157,8 @@ $con = substr(  $con , 0  , 300   );
 $url = 'https://adg.alt.ai:443/api/rmr_single';
 $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
 
+if(  1 <  strlen(  $message )  ){
+
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -164,15 +167,12 @@ $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
                                'text' =>  $message ,
                           ],
                       ];
-                      $client->request('POST', $path, ['json' => $json]);
                       
-                      
-                      
-            }else{
-                
-                
-
-
+}else{
+	
+	
+	
+	
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -202,7 +202,27 @@ $message = get_rmr_single($url,     getenv('rmr_key')    , $text);
                             ]
                        ]
                       ];
+	
+
+	
+	
+	
+	
+}
+                      
+                      
+                      
+                      
+                      
                       $client->request('POST', $path, ['json' => $json]);
+                      
+                      
+                      
+            }else{
+                
+                
+
+
                 
             }
         }
