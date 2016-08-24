@@ -91,7 +91,13 @@ $app->post('/callback', function (Request $request) use ($app) {
                 
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
-/*
+
+
+
+
+$attachment = str_replace('\\', '', $attachment );
+$attachment = urlencode( $attachment );
+
     $ch = curl_init();
     curl_setopt_array($ch, array(
         CURLOPT_URL => "http://updatenews.ddo.jp/docomo.777980328128613287410.php?image=" .  $attachment   ,
@@ -99,12 +105,9 @@ $app->post('/callback', function (Request $request) use ($app) {
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
-*/
 
-$attachment = str_replace('\\', '', $attachment );
-$attachment = urlencode( $attachment );
 
-    $body = curl_exec(  "http://updatenews.ddo.jp/docomo.777980328128613287410.php?image=".    $attachment  );
+
 /*
     $data = file_get_contents($attachment);
     file_put_contents('/tmp/temp.jpg',$data);
