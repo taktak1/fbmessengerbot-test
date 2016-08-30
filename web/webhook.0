@@ -22,8 +22,19 @@ if($_GET['hub_verify_token'] ==    $hub_verify_token  ) {
 
 
 
+
+
+
+
+
 if(isset($messaging->message)) {
     $id = $messaging->sender->id;
+    
+    $text = $messaging->message->text ;
+    $attachment = $messaging->message->attachments       $m['message']['attachments'][0]['payload']['url'];
+
+    
+    
     $message = 'マカロンはお金持ちのお菓子';
     $post = <<< EOM
     {
@@ -35,9 +46,68 @@ if(isset($messaging->message)) {
         }
     }
 EOM;
-
     api_send_request($access_token, $post);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+function http_get($url, $data) {
+    $params = "";
+    foreach ($data as $k => $v) {
+        $params .= $k . '=' . urlencode($v) . '&';
+    }
+    $url = $url . "?" . $params;
+    $url = rtrim($url, '&');
+    $ch = curl_init();
+    curl_setopt_array($ch, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_SSL_VERIFYPEER => false,
+    ));
+    $contents = curl_exec($ch);
+    return $contents;
+}
+
+
+
+
+function get_rmr_single($url, $api_key, $question) {
+    $data = array('api_key' => $api_key, 'question' => $question);
+    $results = json_decode(http_get($url, $data), true);
+    
+//    $answers = "よくわかりません" . "\n";
+    $answers = "";
+            if (count($results) > 0) {
+                $order = 0;
+                foreach ($results as $result) {
+                    $answers = $result['answer'] . "\n";
+                    break;
+                }
+            }
+    
+    return $answers;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 function api_send_request($access_token, $post) {
     error_log("api_get_message_content_request start");
