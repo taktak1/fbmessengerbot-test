@@ -1,4 +1,7 @@
 <?php
+
+8/30 期待通実行確認
+
 $access_token = "EAAOF5YgbIlMBANBAG9HVedR902OXaM2AArWjCjnrXENZARLIQbntpC8vfdiTCvirRc6I6gwKX0vTyReZBKrc7zLgXRGD333VJEOnN1M67wc97bpvXowOWSjYa0zzwh7v3MQFdZCPRankSASB4coutEXDIyWTosqr5GdD5xTXAZDZD";
 $json_string = file_get_contents('php://input');
 $json_object = json_decode($json_string);
