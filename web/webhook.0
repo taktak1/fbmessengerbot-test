@@ -1,6 +1,5 @@
 <?php
 
-
 $access_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 $json_string = file_get_contents('php://input');
 $json_object = json_decode($json_string);
@@ -8,9 +7,7 @@ $messaging = $json_object->entry{0}->messaging{0};
 
 
 
-
 $hub_verify_token = "nande"; // 適当なトークンを自分で作成
-
 if(isset($_GET['hub_verify_token'])){
 if($_GET['hub_verify_token'] ==    $hub_verify_token  ) {
     echo $_GET["hub_challenge"];
@@ -20,22 +17,55 @@ if($_GET['hub_verify_token'] ==    $hub_verify_token  ) {
 }
 
 
-
-
-
-
+$message = "";
 
 
 
 if(isset($messaging->message)) {
     $id = $messaging->sender->id;
-    
     $text = $messaging->message->text ;
-    $attachment = $messaging->message->attachments       $m['message']['attachments'][0]['payload']['url'];
+    $attachment = $messaging->message->attachments{0}->payload->url ;
+    if ($attachment) {
+        $attachment = str_replace('\\', '', $attachment );
+//        $attachment = urlencode( $attachment );
+        $data = file_get_contents($attachment);
+file_put_contents('/tmp/temp.jpg',$data);
 
+$docomo["image"]="@/tmp/temp.jpg";
+$docomo["modelName"]="food";
+
+$curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"     );
+curl_setopt($curl, CURLOPT_HEADER, true); 
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS,$docomo);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($curl);
+$header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE); 
+$header = substr($response, 0, $header_size); 
+$body = substr($response, $header_size); 
+$result = json_decode($body, true); 
+curl_close($curl);
+
+$message = substr(  $result , 0  , 300   );
+}
+
+    if ($text) {
+$url = 'https://adg.alt.ai:443/api/rmr_single';
+$message = get_rmr_single($url,     getenv('rmr_key')    , $text);
+if(  1 <  strlen(  $message )  ){       }else{
+
+}
+
+
+
+
+
+}
     
     
-    $message = 'マカロンはお金持ちのお菓子';
+    
+    
     $post = <<< EOM
     {
         "recipient":{
@@ -96,10 +126,6 @@ function get_rmr_single($url, $api_key, $question) {
     
     return $answers;
 }
-
-
-
-
 
 
 
