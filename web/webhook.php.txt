@@ -1,5 +1,5 @@
 <?php
-$access_token = "";
+$access_token = "EAAOF5YgbIlMBANBAG9HVedR902OXaM2AArWjCjnrXENZARLIQbntpC8vfdiTCvirRc6I6gwKX0vTyReZBKrc7zLgXRGD333VJEOnN1M67wc97bpvXowOWSjYa0zzwh7v3MQFdZCPRankSASB4coutEXDIyWTosqr5GdD5xTXAZDZD";
 $json_string = file_get_contents('php://input');
 $json_object = json_decode($json_string);
 $messaging = $json_object->entry{0}->messaging{0};
@@ -39,7 +39,7 @@ EOM;
 
 function api_send_request($access_token, $post) {
     error_log("api_get_message_content_request start");
-    $url = "https://graph.facebook.com/v2.6/me/messages?access_token=". getenv('FACEBOOK_PAGE_ACCESS_TOKEN')  ;
+    $url = "https://graph.facebook.com/v2.6/me/messages?access_token=".   $access_token   ;
     $headers = array(
             "Content-Type: application/json"
     );
