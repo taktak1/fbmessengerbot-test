@@ -81,12 +81,13 @@ $app->post('/callback', function (Request $request) use ($app) {
             $from = $m['sender']['id'];
             $text = $m['message']['text'];
             $attachment = $m['message']['attachments'][0]['payload']['url'];
+            $postback = $m['postback']['payload'];
+
 
             if(    $from    == '1464024910511356'  ){  continue;  }
             
             if ($attachment) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-
 
 $attachment = str_replace('\\', '', $attachment );
 $attachment = urlencode( $attachment );
@@ -98,8 +99,6 @@ $attachment = urlencode( $attachment );
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
-
-
 
 
 $con   = (    $body   ) ;
@@ -117,15 +116,18 @@ $con = substr(  $con , 0  , 300   );
             }
 
 
+
+
+               if ($postback) {
+               	$text=$postback;
+               }
+
+
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-
 $message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text )     );
 
-
-
 if(  1 <  strlen(  $message )  ){
-
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -134,7 +136,6 @@ if(  1 <  strlen(  $message )  ){
                                'text' =>  $message ,
                           ],
                       ];
-
 }else{
 	
                       $json = [
@@ -169,16 +170,12 @@ if(  1 <  strlen(  $message )  ){
 	
 	
 	
-	
 }
-                      
                       
                       
                       $client->request('POST', $path, ['json' => $json]);
                       
-            }else{
-                
-                
+            }   
 
 
 
@@ -186,8 +183,6 @@ if(  1 <  strlen(  $message )  ){
 
 
 
-
-            }
         }
     }
     return 0;
