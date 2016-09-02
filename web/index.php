@@ -56,9 +56,6 @@ function get_rmr_single($url, $api_key, $question) {
 
 
 
-
-
-
 $app = new Silex\Application();
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
@@ -119,14 +116,11 @@ $con = substr(  $con , 0  , 300   );
                       $client->request('POST', $path, ['json' => $json]);
             }
 
+
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
-
-
-$message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text );   );
-
-
+$message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text )     );
 
 
 
@@ -173,8 +167,6 @@ if(  1 <  strlen(  $message )  ){
                        ]
                       ];
 	
-
-	
 	
 	
 	
@@ -182,18 +174,19 @@ if(  1 <  strlen(  $message )  ){
                       
                       
                       
-                      
-                      
                       $client->request('POST', $path, ['json' => $json]);
-                      
-                      
                       
             }else{
                 
                 
 
 
-                
+
+
+
+
+
+
             }
         }
     }
