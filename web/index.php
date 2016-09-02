@@ -88,11 +88,7 @@ $app->post('/callback', function (Request $request) use ($app) {
             if(    $from    == '1464024910511356'  ){  continue;  }
             
             if ($attachment) {
-                
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-
-
-
 
 
 $attachment = str_replace('\\', '', $attachment );
@@ -105,33 +101,6 @@ $attachment = urlencode( $attachment );
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
-
-
-
-/*
-    $data = file_get_contents($attachment);
-    file_put_contents('/tmp/temp.jpg',$data);
-
-$docomo["image"]="@/tmp/temp.jpg";
-$docomo["modelName"]="food";
-$curl = curl_init("https://api.apigw.smt.docomo.ne.jp/imageRecognition/v1/concept/classify/?APIKEY=".   getenv('docomo_key')    );
-curl_setopt($curl, CURLOPT_HEADER, true); 
-curl_setopt($curl, CURLOPT_POST, true);
-curl_setopt($curl, CURLOPT_POSTFIELDS,$docomo);
-
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-$response = curl_exec($curl);
-$header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE); 
-$header = substr($response, 0, $header_size); 
-$body = substr($response, $header_size); 
-$result = json_decode($body, true); 
-curl_close($curl);
-*/
-
-
-
 
 
 
@@ -150,15 +119,16 @@ $con = substr(  $con , 0  , 300   );
                       $client->request('POST', $path, ['json' => $json]);
             }
 
-            
-            
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 
-//$api = "http://updatenews.ddo.jp/api?id=".   $from  . "&text=".  $text ;
-//file_get_contents( $api  );
-$url = 'https://adg.alt.ai:443/api/rmr_single';
-$message = get_rmr_single($url,     getenv('rmr_key')    , $text);
+
+
+$message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text );   );
+
+
+
+
 
 if(  1 <  strlen(  $message )  ){
 
@@ -170,11 +140,8 @@ if(  1 <  strlen(  $message )  ){
                                'text' =>  $message ,
                           ],
                       ];
-                      
+
 }else{
-	
-	
-	
 	
                       $json = [
                           'recipient' => [
