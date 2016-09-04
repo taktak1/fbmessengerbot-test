@@ -150,24 +150,21 @@ if(  count(  $items  ) <4 ){
         "text" => "Mealthyで検索する",
         "buttons" =>  [
 	[
-		"type":"web_url",
-            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title": $items[0]  ] ,
-	[
-		"type":"web_url",
-            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title": $items[1]  ] ,
+		"type"=> "web_url",
+            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title"=> $items[0]  ] ,
             
-	[
-		"type":"web_url",
-            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title": $items[2]  ] ,
+		"type"=> "web_url",
+            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title"=> $items[1]  ] ,
             
-	[
-		"type":"web_url",
-            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title": $items[3]  ] ,
+		"type"=> "web_url",
+            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title"=> $items[2]  ] ,
             
+		"type"=> "web_url",
+            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title"=> $items[3]  ] ,
 	],
 	
 
