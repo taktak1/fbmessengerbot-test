@@ -127,7 +127,13 @@ $con = substr(  $con , 0  , 300   );
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 $message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text )     );
 
-if(  1 <  strlen(  $message )  ){
+
+
+
+if(preg_match("/^:@ /",$message)){
+
+	
+}else if(  1 <  strlen(  $message )  ){
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -136,6 +142,8 @@ if(  1 <  strlen(  $message )  ){
                                'text' =>  $message ,
                           ],
                       ];
+                      
+                      
 }else{
 	
                       $json = [
