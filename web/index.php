@@ -131,6 +131,53 @@ $message  = file_get_contents( "https://bot-sample.mealthy.me/api.77798032812869
 
 
 if(preg_match("/^:@ /",$message)){
+	$message = substr( $message , 3 );
+	$items = explode(",", $message);
+if(  count(  $items  ) <4 ){ 
+	echo  "お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？"   ;
+	exit(0); 
+}
+
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'attachment' =>  [
+				      'type'  =>  'template'   ,
+				      'payload'  => [
+        "template_type" => "button",
+        "text" => "Mealthyで検索する",
+        "buttons" =>  [
+	[
+		"type":"web_url",
+            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title": $items[0]  ] ,
+	[
+		"type":"web_url",
+            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title": $items[1]  ] ,
+            
+	[
+		"type":"web_url",
+            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title": $items[2]  ] ,
+            
+	[
+		"type":"web_url",
+            "url":"https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title": $items[3]  ] ,
+            
+	],
+	
+
+                                 ]
+                            ]
+                       ]
+                      ];
+	
+
+
 
 	
 }else if(  1 <  strlen(  $message )  ){
