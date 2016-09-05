@@ -147,18 +147,20 @@ if(  count(  $items  ) <4 ){
 				      'type'  =>  'template'   ,
 				      'payload'  => [
         "template_type" => "button",
-        "text" => "Mealthyで検索する",
+        "text" =>  $items[0] ,
         "buttons" =>  [
-        	[
+        	
+            [
 		"type"=> "web_url",
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
             "title"=> $items[0]  ] ,
-            /*
+            
             [
 		"type"=> "web_url",
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
             "title"=> $items[1]  ] ,
             [
+            	/*
 		"type"=> "web_url",
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
             "title"=> $items[2]  ] ,
