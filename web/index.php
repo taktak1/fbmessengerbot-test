@@ -150,16 +150,11 @@ if(  count(  $items  ) <4 ){
         "text" =>  $items[0] ,
         "buttons" =>  [
         	
-            [
-		"type"=> "web_url",
-            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title"=> $items[0]  ] ,
             
             [
 		"type"=> "web_url",
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
             "title"=> $items[1]  ] ,
-            /*
             [
 		"type"=> "web_url",
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
@@ -167,8 +162,9 @@ if(  count(  $items  ) <4 ){
             [
 		"type"=> "web_url",
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title"=> $items[3]  ] , */
+            "title"=> $items[3]  ] , 
             
+           
 	]
 	
                                  ]
