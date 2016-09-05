@@ -149,8 +149,6 @@ if(  count(  $items  ) <4 ){
         "template_type" => "button",
         "text" =>  $items[0] ,
         "buttons" =>  [
-        	
-            
             [
 		"type"=> "web_url",
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
@@ -164,7 +162,6 @@ if(  count(  $items  ) <4 ){
             "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
             "title"=> $items[3]  ] , 
             
-           
 	]
 	
                                  ]
