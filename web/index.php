@@ -120,9 +120,11 @@ if(  count(  $items  ) <4 ){
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/305.png"  , 
         		"subtitle"=>  "メニュー情報",
         		"buttons"=> [
+        			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
 		            "title"=> "mealthyで検索" 
+		            ]
         		]
         	] ,
 
