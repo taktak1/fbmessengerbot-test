@@ -109,24 +109,22 @@ if(  count(  $items  ) <4 ){
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
-        "template_type" => "button",
-        "text" =>  $items[0] ,
-        "buttons" =>  [
-        	
+        "template_type" => "generic",
+        "elements" =>  [
             
-            [
-		"type"=> "web_url",
-            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title"=> $items[1]  ] ,
-            [
-		"type"=> "web_url",
-            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title"=> $items[2]  ] ,
-            [
-		"type"=> "web_url",
-            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-            "title"=> $items[3]  ] , 
             
+                    	[
+        		"title"=> $items[1] ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/305.png"  , 
+        		"subtitle"=> $items[0],
+        		"buttons"=> [
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "mealthyで検索" 
+        		]
+        	] ,
+
+
            
 	]
 	
