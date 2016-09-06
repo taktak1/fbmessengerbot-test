@@ -140,6 +140,10 @@ if(preg_match("/^:@ /",$message)){
 	$items = explode(",", $message);
 
 	
+	
+	
+	
+	
 if(  count(  $items  ) <4 ){ 
 	
                       $json = [
@@ -148,12 +152,22 @@ if(  count(  $items  ) <4 ){
                           ],
                           'message' => [
                           
- substr(  $message , 0  , 200   ). " お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？" ,
+ substr(  $message , 0  , 200   ). "  ?  " ,
                           ],
                       ];
 	
 }else{
 	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                          
+ substr(  $message , 0  , 200   ). "  ?  " ,
+                          ],
+                      ];
+	/*
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -174,8 +188,7 @@ if(  count(  $items  ) <4 ){
 		            "title"=> "mealthyで検索" 
         		]
         	] ,
-        	
-	]
+	]*/
         	
         	
         /*	[
