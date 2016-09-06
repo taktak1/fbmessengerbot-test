@@ -94,7 +94,7 @@ $attachment = urlencode( $attachment );
 
     $ch = curl_init();
     curl_setopt_array($ch, array(
-        CURLOPT_URL => "http://updatenews.ddo.jp/docomo.777980328128613287410.php?image=" .  $attachment   ,
+        CURLOPT_URL =>  getenv('docomo_key') .  $attachment   ,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_SSL_VERIFYPEER => false,
     ));
@@ -125,7 +125,7 @@ $con = substr(  $con , 0  , 300   );
 
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-$message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text )     );
+$message  = file_get_contents(   getenv('rmr_key')  .  $from  ."&text=".  urlencode( $text )     );
 
 
 
