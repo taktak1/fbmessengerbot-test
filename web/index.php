@@ -124,7 +124,7 @@ if(  count(  $items  ) < 16 ){
 		            "title"=> "mealthyで検索" 
 		            ]
         		],
-        		]
+        		],
         		
         		
                     	[
@@ -138,7 +138,7 @@ if(  count(  $items  ) < 16 ){
 		            "title"=> "mealthyで検索" 
 		            ]
         		],
-        		]
+        		],
         		
         		
         		
@@ -153,7 +153,7 @@ if(  count(  $items  ) < 16 ){
 		            "title"=> "mealthyで検索" 
 		            ]
         		],
-        		]
+        		],
         		
                     	[
         		"title"=> $items[13]  ,
