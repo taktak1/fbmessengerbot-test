@@ -97,10 +97,13 @@ $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=". 
 if(preg_match("/^:@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
+	
+	/*
 if(  count(  $items  ) <4 ){ 
 	echo  "お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？"   ;
 	exit(0); 
-}
+}*/
+
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -112,11 +115,10 @@ if(  count(  $items  ) <4 ){
         "template_type" => "generic",
         "elements" =>  [
             
-            
                     	[
-        		"title"=> $items[1] ,
+        		"title"=> " メニュー名" ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/305.png"  , 
-        		"subtitle"=> $items[0],
+        		"subtitle"=>  "メニュー情報",
         		"buttons"=> [
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
@@ -141,7 +143,7 @@ if(  count(  $items  ) <4 ){
                           ],
                           'message' => [
                                'text' =>  $message ,
-                          ],
+                          ], 
                       ];
                       
                       
