@@ -203,7 +203,6 @@ if(preg_match("/^:@ /",$message)){
                       
             }   
         }
-    }
     return 0;
 });
 $app->run();
