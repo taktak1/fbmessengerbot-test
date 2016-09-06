@@ -3,11 +3,6 @@ require('../vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use GuzzleHttp\Client;
-
-
-
-
-
 function http_get($url, $data) {
     $params = "";
     foreach ($data as $k => $v) {
@@ -24,13 +19,6 @@ function http_get($url, $data) {
     $contents = curl_exec($ch);
     return $contents;
 }
-
-
-
-
-
-
-
 function get_rmr_single($url, $api_key, $question) {
     $data = array('api_key' => $api_key, 'question' => $question);
     $results = json_decode(http_get($url, $data), true);
@@ -47,15 +35,6 @@ function get_rmr_single($url, $api_key, $question) {
     
     return $answers;
 }
-
-
-
-
-
-
-
-
-
 $app = new Silex\Application();
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
@@ -82,28 +61,21 @@ $app->post('/callback', function (Request $request) use ($app) {
             $text = $m['message']['text'];
             $attachment = $m['message']['attachments'][0]['payload']['url'];
             $postback = $m['postback']['payload'];
-
-
             if(    $from    == '1464024910511356'  ){  continue;  }
             
             if ($attachment) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-
 $attachment = str_replace('\\', '', $attachment );
 $attachment = urlencode( $attachment );
-
     $ch = curl_init();
     curl_setopt_array($ch, array(
-        CURLOPT_URL =>  getenv('docomo_key') .  $attachment   ,
+        CURLOPT_URL => "http://updatenews.ddo.jp/docomo.777980328128613287410.php?image=" .  $attachment   ,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
-
-
 $con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
-
                        $json = [
                           'recipient' => [
                               'id' => $from,
@@ -114,60 +86,29 @@ $con = substr(  $con , 0  , 300   );
                       ];
                       $client->request('POST', $path, ['json' => $json]);
             }
-
-
-
-
                if ($postback) {
                	$text=$postback;
                }
-
-
+               
+               
+               
+               
+               
             if ($text) {
+            	
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-$message  = file_get_contents(   getenv('rmr_key')  .  $from  ."&text=".  urlencode( $text )     );
-
-
+$message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text )     );
 
 
 if(preg_match("/^:@ /",$message)){
-	
 	$message = substr( $message , 3 );
-	/*
-	$item = json_decode( $message  , true);
-	$items = $item['items'];
-	*/
 	$items = explode(",", $message);
+	
 
 	
 	
-	
-	
-	
-if(  count(  $items  ) <4 ){ 
-	
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                          
- substr(  $message , 0  , 200   ). "  ?  " ,
-                          ],
-                      ];
-	
-}else{
-	
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                          
- substr(  $message , 0  , 200   ). "  ?  " ,
-                          ],
-                      ];
-	/*
+
+                      
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -179,16 +120,17 @@ if(  count(  $items  ) <4 ){
         "template_type" => "generic",
         "elements" =>  [
         	[
-        		"title"=> $items[1] ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/" .    $items[4]  , 
-        		"subtitle"=>    $items[2] ."kcal  ".    $items[3]  ."円 ". $items[0] ,
+        		"title"=>"タイトル" ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/305.png"     , 
+        		"subtitle"=>  "カロリー　kcal   円  店 ",
         		"buttons"=> [
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
 		            "title"=> "mealthyで検索" 
         		]
-        	] ,
-	]*/
+        	] 
+	]
+	
         	
         	
         /*	[
@@ -203,18 +145,15 @@ if(  count(  $items  ) <4 ){
         	] ,
         	*/
         	
-	/*
                                  ]
                             ]
                        ]
                       ];
-	*/
+                      
 	
 }
 
-
-
-
+	
 }else if(  1 <  strlen(  $message )  ){
                       $json = [
                           'recipient' => [
@@ -252,27 +191,17 @@ if(  count(  $items  ) <4 ){
         "title" => "診断をする"  , 
         "payload" => "diagnosis3"  ,  ] ,
 	]
-
                                  ]
                             ]
                        ]
                       ];
 	
 	
-	
 }
-                      
                       
                       $client->request('POST', $path, ['json' => $json]);
                       
             }   
-
-
-
-
-
-
-
         }
     }
     return 0;
