@@ -99,7 +99,6 @@ if(preg_match("/^:@ /",$message)){
 	$items = explode(",", $message);
 	
 if(  count(  $items  ) < 16 ){ 
-	
 	exit(0); 
 }
 
@@ -125,6 +124,7 @@ if(  count(  $items  ) < 16 ){
 		            "title"=> "mealthyで検索" 
 		            ]
         		],
+        		]
         		
         		
                     	[
@@ -138,6 +138,7 @@ if(  count(  $items  ) < 16 ){
 		            "title"=> "mealthyで検索" 
 		            ]
         		],
+        		]
         		
         		
         		
@@ -152,6 +153,7 @@ if(  count(  $items  ) < 16 ){
 		            "title"=> "mealthyで検索" 
 		            ]
         		],
+        		]
         		
                     	[
         		"title"=> $items[13]  ,
@@ -164,14 +166,7 @@ if(  count(  $items  ) < 16 ){
 		            "title"=> "mealthyで検索" 
 		            ]
         		],
-        		
-        		
-        		
-        		
-        	] ,
-
-
-           
+                        ],
 	]
 	
                                  ]
