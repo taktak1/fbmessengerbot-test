@@ -117,7 +117,7 @@ if(  count(  $items  ) < 16 ){
                     	[
         		"title"=> $items[1]  ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[4]  , 
-        		"subtitle"=>  $items[2]."kcal ".  $items[3]  ."円    ". $items[0]."    ".,
+        		"subtitle"=>  $items[2]."kcal ".  $items[3]  ."円    ". $items[0]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
@@ -130,7 +130,7 @@ if(  count(  $items  ) < 16 ){
                     	[
         		"title"=> $items[5]  ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[8]  , 
-        		"subtitle"=>  $items[6]."kcal ".  $items[7]  ."円    ". $items[0]."    ".,
+        		"subtitle"=>  $items[6]."kcal ".  $items[7]  ."円    ". $items[0]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
@@ -144,7 +144,7 @@ if(  count(  $items  ) < 16 ){
                     	[
         		"title"=> $items[9]  ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[12]  , 
-        		"subtitle"=>  $items[10]."kcal ".  $items[11]  ."円    ". $items[0]."    ".,
+        		"subtitle"=>  $items[10]."kcal ".  $items[11]  ."円    ". $items[0]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
@@ -156,7 +156,7 @@ if(  count(  $items  ) < 16 ){
                     	[
         		"title"=> $items[13]  ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[16]  , 
-        		"subtitle"=>  $items[14]."kcal ".  $items[15]  ."円    ". $items[0]."    ".,
+        		"subtitle"=>  $items[14]."kcal ".  $items[15]  ."円    ". $items[0]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
