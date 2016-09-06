@@ -69,7 +69,7 @@ $attachment = str_replace('\\', '', $attachment );
 $attachment = urlencode( $attachment );
     $ch = curl_init();
     curl_setopt_array($ch, array(
-        CURLOPT_URL => "http://updatenews.ddo.jp/docomo.777980328128613287410.php?image=" .  $attachment   ,
+        CURLOPT_URL =>    getenv('docomo_key')   ."?image=" .  $attachment   ,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_SSL_VERIFYPEER => false,
     ));
@@ -89,26 +89,18 @@ $con = substr(  $con , 0  , 300   );
                if ($postback) {
                	$text=$postback;
                }
-               
-               
-               
-               
-               
             if ($text) {
-            	
-                $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-$message  = file_get_contents( "https://bot-sample.mealthy.me/api.777980328128693287410.php?id=".  $from  ."&text=".  urlencode( $text )     );
+                $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN') );
+$message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=".  urlencode( $text )     );
 
 
 if(preg_match("/^:@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
-	
-
-	
-	
-
-                      
+if(  count(  $items  ) <4 ){ 
+	echo  "お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？"   ;
+	exit(0); 
+}
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -117,42 +109,32 @@ if(preg_match("/^:@ /",$message)){
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
-        "template_type" => "generic",
-        "elements" =>  [
-        	[
-        		"title"=>"タイトル" ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/305.png"     , 
-        		"subtitle"=>  "カロリー　kcal   円  店 ",
-        		"buttons"=> [
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "mealthyで検索" 
-        		]
-        	] 
+        "template_type" => "button",
+        "text" =>  $items[0] ,
+        "buttons" =>  [
+        	
+            
+            [
+		"type"=> "web_url",
+            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title"=> $items[1]  ] ,
+            [
+		"type"=> "web_url",
+            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title"=> $items[2]  ] ,
+            [
+		"type"=> "web_url",
+            "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+            "title"=> $items[3]  ] , 
+            
+           
 	]
 	
-        	
-        	
-        /*	[
-        		"title"=> $items[1]['name'] ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/" .    $items[1]['image']  , 
-        		"subtitle"=>    $items[1]['calorie'] ."kcal  ".    $items[1]['price']  ."円 ". $item['shop']  ,
-        		"buttons"=> [
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "mealthyで検索" 
-        		]
-        	] ,
-        	*/
-        	
                                  ]
                             ]
                        ]
                       ];
-                      
 	
-}
-
 	
 }else if(  1 <  strlen(  $message )  ){
                       $json = [
@@ -197,12 +179,15 @@ if(preg_match("/^:@ /",$message)){
                       ];
 	
 	
+	
 }
+                      
                       
                       $client->request('POST', $path, ['json' => $json]);
                       
             }   
         }
+    }
     return 0;
 });
 $app->run();
