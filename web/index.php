@@ -133,7 +133,7 @@ $message  = file_get_contents(   getenv('rmr_key')  .  $from  ."&text=".  urlenc
 if(preg_match("/^:@ /",$message)){
 	
 	$item = json_decode( $message  , true);
-	$items = $item['items']
+	$items = $item['items'];
 	/*
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
