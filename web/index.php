@@ -133,18 +133,14 @@ $message  = file_get_contents(   getenv('rmr_key')  .  $from  ."&text=".  urlenc
 if(preg_match("/^:@ /",$message)){
 	
 	$message = substr( $message , 3 );
+	/*
 	$item = json_decode( $message  , true);
 	$items = $item['items'];
-	/*
-	$items = explode(",", $message);
 	*/
-	
-	
-	
-	
+	$items = explode(",", $message);
+
 	
 if(  count(  $items  ) <4 ){ 
-	
 	
                       $json = [
                           'recipient' => [
@@ -155,8 +151,6 @@ if(  count(  $items  ) <4 ){
  substr(  $message , 0  , 200   ). " お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？" ,
                           ],
                       ];
-                      
-	
 	
 }else{
 	
@@ -171,9 +165,9 @@ if(  count(  $items  ) <4 ){
         "template_type" => "generic",
         "elements" =>  [
         	[
-        		"title"=> $items[0]['name'] ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/" .    $items[0]['image']  , 
-        		"subtitle"=>    $items[0]['calorie'] ."kcal  ".    $items[0]['price']  ."円 ". $item['shop']  ,
+        		"title"=> $items[1] ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/" .    $items[4]  , 
+        		"subtitle"=>    $items[2] ."kcal  ".    $items[3]  ."円 ". $items[0] ,
         		"buttons"=> [
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
@@ -181,8 +175,10 @@ if(  count(  $items  ) <4 ){
         		]
         	] ,
         	
+	]
         	
-        	[
+        	
+        /*	[
         		"title"=> $items[1]['name'] ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/" .    $items[1]['image']  , 
         		"subtitle"=>    $items[1]['calorie'] ."kcal  ".    $items[1]['price']  ."円 ". $item['shop']  ,
@@ -192,10 +188,8 @@ if(  count(  $items  ) <4 ){
 		            "title"=> "mealthyで検索" 
         		]
         	] ,
+        	*/
         	
-        	
-        	
-	]
 	
                                  ]
                             ]
