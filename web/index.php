@@ -132,15 +132,16 @@ $message  = file_get_contents(   getenv('rmr_key')  .  $from  ."&text=".  urlenc
 
 if(preg_match("/^:@ /",$message)){
 	
-	$items = json_decode( $message  , true);
+	$item = json_decode( $message  , true);
+	$items = $item['items']
 	/*
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	*/
 	
 	
-	/*
-if(  count(  $items['']  ) <4 ){ 
+	
+if(  count(  $items  ) <4 ){ 
 	echo  "お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？"   ;
 	exit(0); 
 }
@@ -156,9 +157,9 @@ if(  count(  $items['']  ) <4 ){
         "template_type" => "generic",
         "elements" =>  [
         	[
-        		"title"=> $items[1] ,
-        		"image_url"=> ""  , 
-        		"subtitle"=> $items[0],
+        		"title"=> $items[0]['name'] ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/" .    $items[0]['image']  , 
+        		"subtitle"=>    $items[0]['calorie'] ."kcal  ".    $items[0]['price']  ."円 ". $item['shop']  ,
         		"buttons"=> [
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
@@ -166,16 +167,20 @@ if(  count(  $items['']  ) <4 ){
         		]
         	] ,
         	
+        	
         	[
-        		"title"=> $items[2] ,
-        		"image_url"=> ""  , 
-        		"subtitle"=> $items[0],
+        		"title"=> $items[1]['name'] ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/" .    $items[1]['image']  , 
+        		"subtitle"=>    $items[1]['calorie'] ."kcal  ".    $items[1]['price']  ."円 ". $item['shop']  ,
         		"buttons"=> [
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
 		            "title"=> "mealthyで検索" 
         		]
         	] ,
+        	
+        	
+        	
 	]
 	
                                  ]
@@ -183,17 +188,9 @@ if(  count(  $items['']  ) <4 ){
                        ]
                       ];
 	
-*/
-
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                               'text' =>  $message ,
-                          ],
-                      ];
-                      
+	
+	
+	
 
 
 	
