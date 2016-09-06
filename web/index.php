@@ -132,28 +132,16 @@ $message  = file_get_contents(   getenv('rmr_key')  .  $from  ."&text=".  urlenc
 
 if(preg_match("/^:@ /",$message)){
 	
+	$message = substr( $message , 3 );
 	$item = json_decode( $message  , true);
 	$items = $item['items'];
 	/*
-	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	*/
 	
 	
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                          
- substr(  $message , 0  , 100   ). " お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？" ,
-                          ],
-                      ];
-                      
 	
 	
-	
-	/*
 	
 if(  count(  $items  ) <4 ){ 
 	
@@ -215,7 +203,9 @@ if(  count(  $items  ) <4 ){
                       ];
 	
 }
-*/
+
+
+
 
 }else if(  1 <  strlen(  $message )  ){
                       $json = [
