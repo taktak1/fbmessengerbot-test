@@ -144,14 +144,13 @@ if(preg_match("/^:@ /",$message)){
 if(  count(  $items  ) <4 ){ 
 	
 	
-	
-	
                       $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =>   $item['shop']. " , ".count(  $items  ) . " お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？" ,
+                          
+ substr(  $message , 0  , 200   ). " お店を探すことがことができませんでした。もう一度、正確に入力いただけますか？" ,
                           ],
                       ];
                       
