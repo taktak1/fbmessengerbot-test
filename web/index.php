@@ -207,11 +207,12 @@ if(  count(  $items  ) < 16 ){
 	[
         "type"  =>  "postback",
         "title" => "栄養アドバイスをもらう"  , 
-        "payload" => "advice2"  ,  ] , */
+        "payload" => "advice2"  ,  ] ,
 	[
         "type"  =>  "postback",
         "title" => "Q&A"  , 
-        "payload" => "diagnosis3"  ,  ] ,
+        "payload" => "diagnosis3"  ,  ]  ,
+        */
 	]
                                  ]
                             ]
