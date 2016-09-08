@@ -203,13 +203,14 @@ if(  count(  $items  ) < 16 ){
         "type"  =>  "postback",
         "title" => "メニューを探す"  , 
         "payload" => "menu1"  ,  ] ,
+        /*
 	[
         "type"  =>  "postback",
         "title" => "栄養アドバイスをもらう"  , 
-        "payload" => "advice2"  ,  ] ,
+        "payload" => "advice2"  ,  ] , */
 	[
         "type"  =>  "postback",
-        "title" => "診断をする"  , 
+        "title" => "Q&A"  , 
         "payload" => "diagnosis3"  ,  ] ,
 	]
                                  ]
