@@ -175,6 +175,52 @@ if(  count(  $items  ) < 16 ){
                       ];
 	
 	
+	
+                      $client->request('POST', $path, ['json' => $json]);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'attachment' =>  [
+				      'type'  =>  'template'   ,
+				      'payload'  => [
+        "template_type"  =>  "button",
+        "text"    =>    "他の用件はありますか?",
+        "buttons" =>  [
+	[
+        "type"  =>  "postback",
+        "title" => "メニューを探す"  , 
+        "payload" => "menu1"  ,  ] ,
+        
+        
+	]
+                                 ]
+                            ]
+                       ]
+                      ];
+	
+	
+	
+	
+	
+	
+	
 }else if(  1 <  strlen(  $message )  ){
                       $json = [
                           'recipient' => [
