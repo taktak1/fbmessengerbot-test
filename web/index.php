@@ -127,7 +127,7 @@ if(  count(  $items  ) < 16 ){
                     	[
         		"title"=> $items[1]  ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[4]  , 
-        		"subtitle"=>  $items[2]."kcal ".  $items[3]  ."円    ". $items[0]     ,
+        		"subtitle"=>  $items[2]." ".  $items[3]  ."円    ". $items[0]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
