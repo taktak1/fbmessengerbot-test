@@ -178,8 +178,9 @@ if(  count(  $items  ) < 16 ){
 		            ]
         		],
                         ],
+                        
+                        
 	]
-	
                                  ]
                             ]
                        ]
@@ -188,9 +189,6 @@ if(  count(  $items  ) < 16 ){
 	
 	
                       $client->request('POST', $path, ['json' => $json]);
-	
-	
-	
 	
 	
 	
