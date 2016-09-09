@@ -3,6 +3,17 @@ require('../vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use GuzzleHttp\Client;
+
+
+
+
+
+
+
+
+
+
+
 function http_get($url, $data) {
     $params = "";
     foreach ($data as $k => $v) {
@@ -121,7 +132,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "mealthyで検索" 
+		            "title"=> "Mealthyで検索" 
 		            ]
         		],
         		],
@@ -135,7 +146,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "mealthyで検索" 
+		            "title"=> "Mealthyで検索" 
 		            ]
         		],
         		],
@@ -150,7 +161,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "mealthyで検索" 
+		            "title"=> "Mealthyで検索" 
 		            ]
         		],
         		],
@@ -163,7 +174,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "mealthyで検索" 
+		            "title"=> "Mealthyで検索" 
 		            ]
         		],
                         ],
