@@ -173,27 +173,142 @@ if(  count(  $items  ) < 16 ){
 
 
 
-for ( $count = 16 ; $count < 32  ; $count+=4  ){
-if(   $count +4  <  count(  $items  )  ){ 
-      $obj =  [
-        		"title"=> $items[ $count+1 ]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[ $count+4 ]  , 
-        		"subtitle"=>  $items[ $count+2 ]." ".  $items[ $count+3 ]  ."円    ". $items[0]     ,
+
+if(  32 <  count(  $items  )   ){ 
+
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'attachment' =>  [
+				      'type'  =>  'template'   ,
+				      'payload'  => [
+        "template_type" => "generic",
+        "elements" =>  [
+            
+                    	[
+        		"title"=> $items[1]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[4]  , 
+        		"subtitle"=>  $items[2]." ".  $items[3]  ."円    ". $items[0]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
 		            "title"=> "Mealthyで検索" 
 		            ]
-                        ]
-               ];
-         $json['message']['attachment']['payload']['elements'][] = $obj ;
-}
-}
-
-
-
+        		],
+        		],
+        		
+        		
+                    	[
+        		"title"=> $items[5]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[8]  , 
+        		"subtitle"=>  $items[6]." ".  $items[7]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+        		],
+        		],
+        		
+        		
+                    	[
+        		"title"=> $items[9]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[12]  , 
+        		"subtitle"=>  $items[10]." ".  $items[11]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+        		],
+        		],
+        		
+                    	[
+        		"title"=> $items[13]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[16]  , 
+        		"subtitle"=>  $items[14]." ".  $items[15]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+        		],
+                        ],
+                        
+                        
+                        
+                        
+                    	[
+        		"title"=> $items[17]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[20]  , 
+        		"subtitle"=>  $items[18]." ".  $items[19]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+        		],
+                        ],
+                        
+                        
+                    	[
+        		"title"=> $items[21]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[24]  , 
+        		"subtitle"=>  $items[22]." ".  $items[23]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+        		],
+                        ],
+                        
+                        
+                    	[
+        		"title"=> $items[25]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[28]  , 
+        		"subtitle"=>  $items[26]." ".  $items[27]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+        		],
+                        ],
+                        
+                        
+                        
+                    	[
+        		"title"=> $items[29]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[32]  , 
+        		"subtitle"=>  $items[30]." ".  $items[31]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+        		],
+                        ],
+                        
+                        
+                        
+	]
+                                 ]
+                            ]
+                       ]
+                      ];
 	
+}
 	
 	
 	
