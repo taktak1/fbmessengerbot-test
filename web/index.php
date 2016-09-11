@@ -3,17 +3,6 @@ require('../vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use GuzzleHttp\Client;
-
-
-
-
-
-
-
-
-
-
-
 function http_get($url, $data) {
     $params = "";
     foreach ($data as $k => $v) {
@@ -103,8 +92,6 @@ $con = substr(  $con , 0  , 300   );
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN') );
 $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=".  urlencode( $text )     );
-
-
 if(preg_match("/^:@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
@@ -112,7 +99,6 @@ if(preg_match("/^:@ /",$message)){
 if(  count(  $items  ) < 16 ){ 
 	exit(0); 
 }
-
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -152,7 +138,6 @@ if(  count(  $items  ) < 16 ){
         		],
         		
         		
-        		
                     	[
         		"title"=> $items[9]  ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[12]  , 
@@ -178,8 +163,6 @@ if(  count(  $items  ) < 16 ){
 		            ]
         		],
                         ],
-                        
-                        
 	]
                                  ]
                             ]
@@ -187,14 +170,36 @@ if(  count(  $items  ) < 16 ){
                       ];
 	
 	
+
+
+
+for ( $count = 16 ; $count < 32  ; $count+=4  ){
+if(   $count +4  <  count(  $items  )  ){ 
+      $obj =  [
+        		"title"=> $items[ $count+1 ]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[ $count+4 ]  , 
+        		"subtitle"=>  $items[ $count+2 ]." ".  $items[ $count+3 ]  ."円    ". $items[0]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
+		            ]
+                        ]
+               ];
+         $json['message']['attachment']['payload']['elements'][] = $obj ;
+}
+}
+
+
+
+	
+	
+	
+	
+	
 	
                       $client->request('POST', $path, ['json' => $json]);
-	
-	
-	
-	
-	
-	
 	
                       $json = [
                           'recipient' => [
