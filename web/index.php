@@ -316,6 +316,38 @@ if(  32 <  count(  $items  )   ){
 	
                       $client->request('POST', $path, ['json' => $json]);
 	
+	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "mealthy",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => "メニューを探す"  , 
+        "payload" => "menu1"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "栄養アドバイス"  , 
+        "payload" => "advice2"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "Ｑ＆Ａ"  , 
+        "payload" => "diagnosis3"  ,  ] ,
+	]
+                                 ]
+                      ];
+	
+	
+	
+	
+	
+	
+	/*
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -331,16 +363,12 @@ if(  32 <  count(  $items  )   ){
         "type"  =>  "postback",
         "title" => "メニューを探す"  , 
         "payload" => "menu1"  ,  ] ,
-        
-        
 	]
                                  ]
                             ]
                        ]
                       ];
-	
-	
-	
+                      */
 	
 	
 	
@@ -355,9 +383,36 @@ if(  32 <  count(  $items  )   ){
                           ], 
                       ];
                       
-                      
 }else{
 	
+	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "mealthy",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => "メニューを探す"  , 
+        "payload" => "menu1"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "栄養アドバイス"  , 
+        "payload" => "advice2"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "Ｑ＆Ａ"  , 
+        "payload" => "diagnosis3"  ,  ] ,
+	
+	
+	
+	
+	
+	/*
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -372,7 +427,7 @@ if(  32 <  count(  $items  )   ){
 	[
         "type"  =>  "postback",
         "title" => "メニューを探す"  , 
-        "payload" => "menu1"  ,  ] ,
+        "payload" => "menu1"  ,  ] ,*/
         /*
 	[
         "type"  =>  "postback",
@@ -385,8 +440,6 @@ if(  32 <  count(  $items  )   ){
         */
 	]
                                  ]
-                            ]
-                       ]
                       ];
 	
 	
