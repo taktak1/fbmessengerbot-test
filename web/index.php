@@ -61,6 +61,8 @@ $app->post('/callback', function (Request $request) use ($app) {
             $text = $m['message']['text'];
             $attachment = $m['message']['attachments'][0]['payload']['url'];
             $postback = $m['postback']['payload'];
+            $quick_reply = $m['message']['quick_reply']['payload'];
+
             if(    $from    == '1464024910511356'  ){  continue;  }
             
             if ($attachment) {
@@ -86,9 +88,17 @@ $con = substr(  $con , 0  , 300   );
                       ];
                       $client->request('POST', $path, ['json' => $json]);
             }
+            
+            
+               if ($quick_reply) {
+               	$text=$quick_reply;
+               }
                if ($postback) {
                	$text=$postback;
                }
+               
+               
+               
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN') );
 $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=".  urlencode( $text )     );
