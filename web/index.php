@@ -112,70 +112,6 @@ $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=". 
 
 
 
-if(preg_match("/^;@ /",$message)){
-	$message = substr( $message , 3 );
-	$items = explode(",", $message);
-	
-	
-if(  6 <=  count(  $items  )  ){ 
-	
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-        "text"    =>    "mealthy",
-        "quick_replies" =>  [
-	[
-        "content_type"  =>  "text",
-        "title" => $items[1]  , 
-        "payload" => $items[0]  ,  ] ,
-        
-	[
-        "content_type"  =>  "text",
-        "title" => $items[3]  , 
-        "payload" => $items[2]  ,  ] ,
-        
-	[
-        "content_type"  =>  "text",
-        "title" => $items[5]  , 
-        "payload" => $items[4]  ,  ] ,
-        
-	]
-                                 ]
-                      ];
-                      
-                      
-                      
-                      
-                      
-}else if(  2 <=  count(  $items  )  ){ 
-	
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-        "text"    =>    "mealthy",
-        "quick_replies" =>  [
-	[
-        "content_type"  =>  "text",
-        "title" => $items[1]  , 
-        "payload" => $items[0]  ,  ] ,
-	]
-                                 ]
-                      ];
-                      
-}
-
-
-
-                      
-	
-}
-
-
-
 
 
 
@@ -461,7 +397,68 @@ if(  32 <  count(  $items  )   ){
                       */
 	
 	
+}else  if(preg_match("/^;@ /",$message)){
+	$message = substr( $message , 3 );
+	$items = explode(",", $message);
 	
+	
+if(  6 <=  count(  $items  )  ){ 
+	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "mealthy",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => $items[1]  , 
+        "payload" => $items[0]  ,  ] ,
+        
+	[
+        "content_type"  =>  "text",
+        "title" => $items[3]  , 
+        "payload" => $items[2]  ,  ] ,
+        
+	[
+        "content_type"  =>  "text",
+        "title" => $items[5]  , 
+        "payload" => $items[4]  ,  ] ,
+        
+	]
+                                 ]
+                      ];
+                      
+                      
+                      
+                      
+                      
+}else if(  2 <=  count(  $items  )  ){ 
+	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "mealthy",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => $items[1]  , 
+        "payload" => $items[0]  ,  ] ,
+	]
+                                 ]
+                      ];
+                      
+}
+
+
+
+                      
+
+
+
 	
 }else if(  1 <  strlen(  $message )  ){
                       $json = [
@@ -539,7 +536,7 @@ if(  32 <  count(  $items  )   ){
                       
                       $client->request('POST', $path, ['json' => $json]);
                       
-            }   
+            }
         }
     }
     return 0;
