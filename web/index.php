@@ -196,27 +196,12 @@ if(  count(  $items  ) < 16 ){
 	
 	
 	
+for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
-	
-	
-
-if(  32 <  count(  $items  )   ){ 
-
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                               'attachment' =>  [
-				      'type'  =>  'template'   ,
-				      'payload'  => [
-        "template_type" => "generic",
-        "elements" =>  [
-            
-                    	[
-        		"title"=> $items[1]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[4]  , 
-        		"subtitle"=>  $items[2]." ".  $items[3]  ."円    ". $items[0]     ,
+	$json['message']['attachment']['payload']['elements'][] = 	[
+        		"title"=> $items[ $i ]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[ $i+3 ]  , 
+        		"subtitle"=>  $items[ $i+1 ]." ".  $items[ $i+2 ]  ."円    ". $items[0]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
@@ -224,115 +209,7 @@ if(  32 <  count(  $items  )   ){
 		            "title"=> "Mealthyで検索" 
 		            ]
         		],
-        		],
-        		
-        		
-                    	[
-        		"title"=> $items[5]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[8]  , 
-        		"subtitle"=>  $items[6]." ".  $items[7]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
-		            ]
-        		],
-        		],
-        		
-        		
-                    	[
-        		"title"=> $items[9]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[12]  , 
-        		"subtitle"=>  $items[10]." ".  $items[11]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
-		            ]
-        		],
-        		],
-        		
-                    	[
-        		"title"=> $items[13]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[16]  , 
-        		"subtitle"=>  $items[14]." ".  $items[15]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
-		            ]
-        		],
-                        ],
-                        
-                        
-                        
-                        
-                    	[
-        		"title"=> $items[17]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[20]  , 
-        		"subtitle"=>  $items[18]." ".  $items[19]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
-		            ]
-        		],
-                        ],
-                        
-                        
-                    	[
-        		"title"=> $items[21]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[24]  , 
-        		"subtitle"=>  $items[22]." ".  $items[23]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
-		            ]
-        		],
-                        ],
-                        
-                        
-                    	[
-        		"title"=> $items[25]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[28]  , 
-        		"subtitle"=>  $items[26]." ".  $items[27]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
-		            ]
-        		],
-                        ],
-                        
-                        
-                        
-                    	[
-        		"title"=> $items[29]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[32]  , 
-        		"subtitle"=>  $items[30]." ".  $items[31]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
-		            ]
-        		],
-                        ],
-                        
-                        
-                        
-	]
-                                 ]
-                            ]
-                       ]
-                      ];
+                        ];
 	
 }
 	
@@ -401,40 +278,7 @@ if(  32 <  count(  $items  )   ){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	
-	
-if(  6 <=  count(  $items  )  ){ 
-	
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-        "text"    =>    "mealthy",
-        "quick_replies" =>  [
-	[
-        "content_type"  =>  "text",
-        "title" => $items[1]  , 
-        "payload" => $items[0]  ,  ] ,
-        
-	[
-        "content_type"  =>  "text",
-        "title" => $items[3]  , 
-        "payload" => $items[2]  ,  ] ,
-        
-	[
-        "content_type"  =>  "text",
-        "title" => $items[5]  , 
-        "payload" => $items[4]  ,  ] ,
-        
-	]
-                                 ]
-                      ];
-                      
-                      
-                      
-                      
-                      
-}else if(  2 <=  count(  $items  )  ){ 
+ if(  2 <=  count(  $items  )  ){ 
 	
                       $json = [
                           'recipient' => [
@@ -450,6 +294,19 @@ if(  6 <=  count(  $items  )  ){
 	]
                                  ]
                       ];
+                      
+                      
+for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){ 
+	
+	$json['message']['quick_replies'][] = [
+        "content_type"  =>  "text",
+        "title" => $items[ $i+1 ]  , 
+        "payload" => $items[ $i ]  ,
+		];
+	
+}
+                      
+                      
                       
 }
 
