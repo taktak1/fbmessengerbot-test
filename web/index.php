@@ -225,7 +225,7 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                               'id' => $from,
                           ],
                           'message' => [
-        "text"    =>    "mealthy",
+        "text"    =>    "他の用件はありますか？",
         "quick_replies" =>  [
 	[
         "content_type"  =>  "text",
@@ -241,37 +241,18 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         "content_type"  =>  "text",
         "title" => "Ｑ＆Ａ"  , 
         "payload" => "diagnosis3"  ,  ] ,
-	]
-                                 ]
-                      ];
-	
-	
-	
-	
-	
-	
-	/*
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                               'attachment' =>  [
-				      'type'  =>  'template'   ,
-				      'payload'  => [
-        "template_type"  =>  "button",
-        "text"    =>    "他の用件はありますか?",
-        "buttons" =>  [
 	[
-        "type"  =>  "postback",
-        "title" => "メニューを探す"  , 
-        "payload" => "menu1"  ,  ] ,
+        "content_type"  =>  "text",
+        "title" => "ニュース"  , 
+        "payload" => "news4"  ,  ] ,
 	]
                                  ]
-                            ]
-                       ]
                       ];
-                      */
+	
+	
+	
+	
+	
 	
 	
 }else  if(preg_match("/^;@ /",$message)){
@@ -335,7 +316,7 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
                               'id' => $from,
                           ],
                           'message' => [
-        "text"    =>    "mealthy",
+        "text"    =>    "他の用件はありますか？",
         "quick_replies" =>  [
 	[
         "content_type"  =>  "text",
@@ -351,40 +332,18 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
         "content_type"  =>  "text",
         "title" => "Ｑ＆Ａ"  , 
         "payload" => "diagnosis3"  ,  ] ,
-	
-	
-	
-	
-	
-	/*
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-                               'attachment' =>  [
-				      'type'  =>  'template'   ,
-				      'payload'  => [
-        "template_type"  =>  "button",
-        "text"    =>    "mealthy",
-        "buttons" =>  [
 	[
-        "type"  =>  "postback",
-        "title" => "メニューを探す"  , 
-        "payload" => "menu1"  ,  ] ,*/
-        /*
-	[
-        "type"  =>  "postback",
-        "title" => "栄養アドバイスをもらう"  , 
-        "payload" => "advice2"  ,  ] ,
-	[
-        "type"  =>  "postback",
-        "title" => "Q&A"  , 
-        "payload" => "diagnosis3"  ,  ]  ,
-        */
+        "content_type"  =>  "text",
+        "title" => "ニュース"  , 
+        "payload" => "news4"  ,  ] ,
 	]
                                  ]
                       ];
+	
+	
+	
+	
+	
 	
 	
 	
