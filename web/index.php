@@ -266,7 +266,7 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                               'id' => $from,
                           ],
                           'message' => [
-        "text"    =>    "mealthy",
+        "text"    =>    "どの店舗をお探しですか？",
         "quick_replies" =>  [
 	[
         "content_type"  =>  "text",
