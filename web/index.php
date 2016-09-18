@@ -225,7 +225,6 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 		            ]
         		],
                         ];
-	
 }
 	
 	
@@ -278,7 +277,7 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	
 	
 	
-}else  if(preg_match("/^*@ /",$message)){
+}else if(preg_match("/^*@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	
@@ -386,7 +385,7 @@ for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	
 	
 	
-}else  if(preg_match("/^;@ /",$message)){
+}else if(preg_match("/^;@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	
