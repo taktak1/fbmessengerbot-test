@@ -315,17 +315,17 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		
  	
 	
-for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
+for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
 	$json['message']['attachment']['payload']['elements'][] = [
                     	[
-        		"title"=> $items[0]  ,
-        		"image_url"=>  $items[3]  , 
-        		"subtitle"=>  $items[1]     ,
+        		"title"=> $items[ $i ]  ,
+        		"image_url"=>  $items[ $i+3 ]  , 
+        		"subtitle"=>  $items[ $i+1 ]     ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
-        		    "url"=> $items[2]     ,
+        		    "url"=> $items[ $i+2 ]     ,
 		            "title"=> "この記事を読む" 
 		            ]
         		],
