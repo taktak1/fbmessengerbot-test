@@ -3,6 +3,11 @@ require('../vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use GuzzleHttp\Client;
+
+
+
+
+
 function http_get($url, $data) {
     $params = "";
     foreach ($data as $k => $v) {
@@ -19,6 +24,11 @@ function http_get($url, $data) {
     $contents = curl_exec($ch);
     return $contents;
 }
+
+
+
+
+
 function get_rmr_single($url, $api_key, $question) {
     $data = array('api_key' => $api_key, 'question' => $question);
     $results = json_decode(http_get($url, $data), true);
@@ -35,6 +45,15 @@ function get_rmr_single($url, $api_key, $question) {
     
     return $answers;
 }
+
+
+
+
+
+
+
+
+
 $app = new Silex\Application();
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
@@ -102,10 +121,6 @@ $con = substr(  $con , 0  , 300   );
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN') );
 $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=".  urlencode( $text )     );
-
-
-
-
 
 
 
@@ -255,6 +270,87 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+}else  if(preg_match("/^*@ /",$message)){
+	$message = substr( $message , 3 );
+	$items = explode(",", $message);
+	
+ if(  4 <=  count(  $items  )  ){ 
+ 	
+ 	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'attachment' =>  [
+				      'type'  =>  'template'   ,
+				      'payload'  => [
+        "template_type" => "generic",
+        "elements" =>  [
+                    	[
+        		"title"=> $items[0]  ,
+        		"image_url"=>  $items[3]  , 
+        		"subtitle"=>  $items[1]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> $items[2]     ,
+		            "title"=> "この記事を読む" 
+		            ]
+        		],
+        		],
+        		]
+        		]
+        		]
+        		]
+        		];
+        		
+ 	
+	
+for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
+	
+	$json['message']['attachment']['payload']['elements'][] = [
+                    	[
+        		"title"=> $items[0]  ,
+        		"image_url"=>  $items[3]  , 
+        		"subtitle"=>  $items[1]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> $items[2]     ,
+		            "title"=> "この記事を読む" 
+		            ]
+        		],
+        		]
+                        ];
+	
+}
+	
+	
+ 	
+ }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }else  if(preg_match("/^;@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
@@ -276,7 +372,6 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                                  ]
                       ];
                       
-                      
 for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){ 
 	
 	$json['message']['quick_replies'][] = [
@@ -286,8 +381,6 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 		];
 	
 }
-                      
-                      
                       
 }
 
