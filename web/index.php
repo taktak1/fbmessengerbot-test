@@ -285,6 +285,40 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
  if(  4 <=  count(  $items  )  ){ 
  	
  	
+ 	
+ 	
+ 	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'attachment' =>  [
+				      'type'  =>  'template'   ,
+				      'payload'  => [
+        "template_type" => "generic",
+        "elements" =>  [
+                    	[
+        		"title"=> "title"  ,
+        		"image_url"=>   "https://fronteo-kenkojiman.s3.amazonaws.com/uploads/article/image1/1373/thumb_1473408383.jpg"  , 
+        		"subtitle"=>  "subtitle"     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "https://www.kenkojiman.com/categories/medical/articles/1373/"     ,
+		            "title"=> "この記事を読む" 
+		            ]
+        		],
+        		],
+        		]
+        		]
+        		]
+        		]
+        		];
+ 	
+ 	
+ 	
+ 	/*
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -312,9 +346,10 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		]
         		]
         		];
+        		*/
         		
  	
-	
+	/*
 for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
 	$json['message']['attachment']['payload']['elements'][] = [
@@ -332,7 +367,7 @@ for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		]
                         ];
 	
-}
+}  */
 	
 	
  	
