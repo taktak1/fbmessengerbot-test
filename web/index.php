@@ -287,7 +287,6 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
  	
  	
  	
- 	
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -298,18 +297,19 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 				      'payload'  => [
         "template_type" => "generic",
         "elements" =>  [
+            
                     	[
         		"title"=> "title"  ,
-        		"image_url"=>   "https://fronteo-kenkojiman.s3.amazonaws.com/uploads/article/image1/1373/thumb_1473408383.jpg"  , 
-        		"subtitle"=>  "subtitle"     ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/"  , 
+        		"subtitle"=>  "subtitle"   ,
         		"buttons"=> [
         			[
         			"type"=> "web_url",
-        		    "url"=> "https://www.kenkojiman.com/categories/medical/articles/1373/"     ,
-		            "title"=> "この記事を読む" 
+        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+		            "title"=> "Mealthyで検索" 
 		            ]
         		],
-        		],
+        		]
         		]
         		]
         		]
