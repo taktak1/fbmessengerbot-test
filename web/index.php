@@ -165,7 +165,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
+		            "title"=> "Mealthyで他を検索する" 
 		            ]
         		],
         		],
@@ -179,7 +179,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
+		            "title"=> "Mealthyで他を検索する" 
 		            ]
         		],
         		],
@@ -193,7 +193,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
+		            "title"=> "Mealthyで他を検索する" 
 		            ]
         		],
         		],
@@ -206,7 +206,7 @@ if(  count(  $items  ) < 16 ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
+		            "title"=> "Mealthyで他を検索する" 
 		            ]
         		],
                         ],
@@ -216,7 +216,7 @@ if(  count(  $items  ) < 16 ){
                        ]
                       ];
 	
-	/*
+	
 	
 for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
@@ -228,12 +228,12 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         			[
         			"type"=> "web_url",
         		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで検索" 
+		            "title"=> "Mealthyで他を検索する" 
 		            ]
         		],
                         ];
 }
-	*/
+
 	
 	
 	
