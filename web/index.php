@@ -51,16 +51,21 @@ function get_rmr_single($url, $api_key, $question) {
 
 
 
-
-
-
 $app = new Silex\Application();
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
 ));
+
+
+
+
 $app->before(function (Request $request) use($bot) {
     // TODO validation
 });
+
+
+
+
 $app->get('/callback', function (Request $request) use ($app) {
     $response = "";
     if ($request->query->get('hub_verify_token') === getenv('FACEBOOK_PAGE_VERIFY_TOKEN')) {
@@ -68,6 +73,18 @@ $app->get('/callback', function (Request $request) use ($app) {
     }
     return $response;
 });
+
+
+
+
+
+
+
+
+
+
+
+
 $app->post('/callback', function (Request $request) use ($app) {
     // Let's hack from here!
     $body = json_decode($request->getContent(), true);
