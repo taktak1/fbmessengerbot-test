@@ -277,15 +277,14 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	
 	
 	
-}else if(preg_match("/^*@ /",$message)){
+}else if(preg_match("/^\*@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	
  if(  4 <=  count(  $items  )  ){ 
  	
  	
- 	
- 	
+ 	/*
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -296,7 +295,6 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 				      'payload'  => [
         "template_type" => "generic",
         "elements" =>  [
-            
                     	[
         		"title"=> "title"  ,
         		"image_url"=> "http://static.mealthy.me/uploads/menu/image/"  , 
@@ -314,10 +312,10 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		]
         		]
         		];
+ 	*/
  	
  	
  	
- 	/*
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -345,7 +343,6 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		]
         		]
         		];
-        		*/
         		
  	
 	/*
