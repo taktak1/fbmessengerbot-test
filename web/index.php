@@ -121,11 +121,8 @@ $con = substr(  $con , 0  , 300   );
                                ],
                       ];
                       
-                      
-                      
                       $client->request('POST', $path, ['json' => $json]);
             }
-            
             
                if ($quick_reply) {
                	$text=$quick_reply;
@@ -133,17 +130,13 @@ $con = substr(  $con , 0  , 300   );
                if ($postback) {
                	$text=$postback;
                }
-               
-               
-               
+
+
+
+
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN') );
 $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=".  urlencode( $text )     );
-
-
-
-
-
 
 
 
