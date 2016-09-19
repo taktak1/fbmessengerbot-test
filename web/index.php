@@ -345,7 +345,6 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		];
         		
  	
-	/*
 for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
 	$json['message']['attachment']['payload']['elements'][] = [
@@ -363,7 +362,7 @@ for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		]
                         ];
 	
-}  */
+}  
 	
 	
  	
