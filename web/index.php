@@ -98,13 +98,9 @@ $attachment = urlencode( $attachment );
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
-    
-    $foods = json_decode(  $body  );
-    
-//      $adv1  = $foods['candidates'][0]['tag'];
+    $result = json_decode($body, true); 
 
-    
-    $body  =$foods;
+    $body  =  $result['candidates'][0]['tag']  ;
     /*
 $con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
