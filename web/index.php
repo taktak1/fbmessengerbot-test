@@ -29,24 +29,6 @@ function http_get($url, $data) {
 
 
 
-function get_rmr_single($url, $api_key, $question) {
-    $data = array('api_key' => $api_key, 'question' => $question);
-    $results = json_decode(http_get($url, $data), true);
-    
-//    $answers = "よくわかりません" . "\n";
-    $answers = "";
-            if (count($results) > 0) {
-                $order = 0;
-                foreach ($results as $result) {
-                    $answers = $result['answer'] . "\n";
-                    break;
-                }
-            }
-    
-    return $answers;
-}
-
-
 
 
 
@@ -101,6 +83,10 @@ $app->post('/callback', function (Request $request) use ($app) {
 
             if(    $from    == '1464024910511356'  ){  continue;  }
             
+            
+            
+            
+            
             if ($attachment) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 $attachment = str_replace('\\', '', $attachment );
@@ -112,8 +98,20 @@ $attachment = urlencode( $attachment );
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
+    
+    $foods = json_decode(  $body  );
+    
+      $adv1  = $foods['candidates'][0]['tag'];
+
+    
+    $body  =$adv1;
+    /*
 $con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
+*/
+
+
+
                        $json = [
                           'recipient' => [
                               'id' => $from,
@@ -122,6 +120,9 @@ $con = substr(  $con , 0  , 300   );
                                'text' => $body ,
                                ],
                       ];
+                      
+                      
+                      
                       $client->request('POST', $path, ['json' => $json]);
             }
             
