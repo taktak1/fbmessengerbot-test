@@ -359,6 +359,20 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		],
         		],
         		
+                    	[
+        		"title"=> $items[8]  ,
+        		"image_url"=>  $items[11]  , 
+        		"subtitle"=>  $items[9]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> $items[10]     ,
+		            "title"=> "この記事を読む" 
+		            ]
+        		],
+        		],
+        		
+        		
         		]
         		]
         		]
@@ -367,7 +381,7 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		
  	
  	/*
-for(  $i = 8  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
+for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
 	$json['message']['attachment']['payload']['elements'][] = [
                     	[
