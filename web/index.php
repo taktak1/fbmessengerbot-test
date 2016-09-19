@@ -288,7 +288,7 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	
- if(  4 <=  count(  $items  )  ){ 
+ if(  8 <=  count(  $items  )  ){ 
  	
  	
  	/*
@@ -345,6 +345,20 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 		            ]
         		],
         		],
+        		
+                    	[
+        		"title"=> $items[4]  ,
+        		"image_url"=>  $items[7]  , 
+        		"subtitle"=>  $items[5]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> $items[6]     ,
+		            "title"=> "この記事を読む" 
+		            ]
+        		],
+        		],
+        		
         		]
         		]
         		]
@@ -352,7 +366,8 @@ for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		];
         		
  	
-for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
+ 	/*
+for(  $i = 8  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
 	$json['message']['attachment']['payload']['elements'][] = [
                     	[
@@ -369,7 +384,7 @@ for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		]
                         ];
 }
-	
+	*/
 	
 	
 	
