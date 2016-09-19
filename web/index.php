@@ -101,10 +101,10 @@ $attachment = urlencode( $attachment );
     
     $foods = json_decode(  $body  );
     
-      $adv1  = $foods['candidates'][0]['tag'];
+//      $adv1  = $foods['candidates'][0]['tag'];
 
     
-    $body  =$adv1;
+    $body  =$foods;
     /*
 $con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
