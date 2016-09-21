@@ -143,7 +143,7 @@ if(preg_match("/^:@ /",$message)){
 	$message = substr( $message , 3 );
 	$items = explode(",", $message);
 	
-if(  count(  $items  ) < 16 ){ 
+if(  count(  $items  ) < 5 ){ 
 	exit(0); 
 }
                       $json = [
@@ -170,46 +170,6 @@ if(  count(  $items  ) < 16 ){
         		],
         		],
         		
-        		
-                    	[
-        		"title"=> $items[5]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[8]  , 
-        		"subtitle"=>  $items[6]." ".  $items[7]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで他を検索する" 
-		            ]
-        		],
-        		],
-        		
-        		
-                    	[
-        		"title"=> $items[9]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[12]  , 
-        		"subtitle"=>  $items[10]." ".  $items[11]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで他を検索する" 
-		            ]
-        		],
-        		],
-        		
-                    	[
-        		"title"=> $items[13]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[16]  , 
-        		"subtitle"=>  $items[14]." ".  $items[15]  ."円    ". $items[0]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
-		            "title"=> "Mealthyで他を検索する" 
-		            ]
-        		],
-                        ],
 	]
                                  ]
                             ]
@@ -218,7 +178,7 @@ if(  count(  $items  ) < 16 ){
 	
 	
 	
-for(  $i = 17  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
+for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
 	$json['message']['attachment']['payload']['elements'][] = 	[
         		"title"=> $items[ $i ]  ,
