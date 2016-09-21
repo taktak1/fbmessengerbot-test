@@ -496,18 +496,15 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
                           ], 
                       ];
                       
-                      
-	
-                      $client->request('POST', $path, ['json' => $json]);
-	
-	
-	
-	
 	
 	
 	if(strpos($message, "ちらのお店のメニューを") !== false){
 		
 }else{
+                      
+	
+                      $client->request('POST', $path, ['json' => $json]);
+	
 	
 
                       $json = [
