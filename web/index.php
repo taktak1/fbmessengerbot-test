@@ -100,14 +100,19 @@ $attachment = urlencode( $attachment );
     $body  = curl_exec(  $ch  );
     $result = json_decode($body, true); 
 
-    $body  =  $result['candidates'][0]['tag']  ;
+
+    $body  =   $result['candidates'][0]['tag']   ." ".     ( $result['candidates'][0]['score'] *100  )."%   "     ;
+    $body  =   $result['candidates'][1]['tag']   ." ".     ( $result['candidates'][1]['score'] *100  )."%   "     ;
+    $body  =   $result['candidates'][2]['tag']   ." ".     ( $result['candidates'][2]['score'] *100  )."%"     ;
+    
+    
+    
+    
+    
     /*
 $con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
 */
-
-
-
                        $json = [
                           'recipient' => [
                               'id' => $from,
@@ -116,10 +121,8 @@ $con = substr(  $con , 0  , 300   );
                                'text' => $body ,
                                ],
                       ];
-                      
                       $client->request('POST', $path, ['json' => $json]);
             }
-            
                if ($quick_reply) {
                	$text=$quick_reply;
                }
@@ -164,7 +167,7 @@ if(  count(  $items  ) < 5 ){
         		"buttons"=> [
         			[
         			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+        		    "url"=> "https://bot-sample.mealthy.me/",
 		            "title"=> "Mealthyで他を検索する" 
 		            ]
         		],
@@ -187,7 +190,7 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		"buttons"=> [
         			[
         			"type"=> "web_url",
-        		    "url"=> "https://itunes.apple.com/jp/app/wai-shi-konbinidedaietto!/id945615907",
+        		    "url"=> "https://bot-sample.mealthy.me/",
 		            "title"=> "Mealthyで他を検索する" 
 		            ]
         		],
