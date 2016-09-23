@@ -98,13 +98,13 @@ $attachment = urlencode( $attachment );
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
+
+/*
     $result = json_decode($body, true); 
-
-
     $body  =   $result['candidates'][0]['tag']   ." ".     ( $result['candidates'][0]['score'] *100  )."%   "     ;
     $body  =   $result['candidates'][1]['tag']   ." ".     ( $result['candidates'][1]['score'] *100  )."%   "     ;
     $body  =   $result['candidates'][2]['tag']   ." ".     ( $result['candidates'][2]['score'] *100  )."%"     ;
-    
+    */
     
     
     
