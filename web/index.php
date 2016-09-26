@@ -236,7 +236,7 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         			"type"=> "web_url",
         		    "url"=> "https://bot-sample.mealthy.me/",
 		            "title"=> "Mealthyで他を検索する" 
-		            ]
+		            ],
         		],
                         ];
 }
