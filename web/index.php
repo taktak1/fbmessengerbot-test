@@ -213,7 +213,12 @@ if(  count(  $items  ) < 5 ){
         			"type"=> "web_url",
         		    "url"=> "https://bot-sample.mealthy.me/",
 		            "title"=> "Mealthyで他を検索する" 
-		            ]
+		            ],
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "me.mealthy://",
+		            "title"=> "Mealthy起動" 
+		            ],
         		],
         		],
         		
@@ -236,6 +241,11 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         			"type"=> "web_url",
         		    "url"=> "https://bot-sample.mealthy.me/",
 		            "title"=> "Mealthyで他を検索する" 
+		            ],
+        			[
+        			"type"=> "web_url",
+        		    "url"=> "me.mealthy://",
+		            "title"=> "Mealthy起動" 
 		            ],
         		],
                         ];
