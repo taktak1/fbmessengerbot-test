@@ -160,10 +160,8 @@ $con = substr(  $con , 0  , 300   );
 	
 	
 	
-	
-	
-                      
-                      
+	                      $client->request('POST', $path, ['json' => $json]);
+
                       
                       
             }
