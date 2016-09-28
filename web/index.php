@@ -516,11 +516,9 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 	
 	
 	if(strpos($message, "ちらのお店のメニューを") !== false){
-		
 }else if(strpos($message, "真を送ってくださ") !== false){
 }else if(strpos($message, "問をどうぞ") !== false){
-		
-}else{
+	}else{
                       
 	
                       $client->request('POST', $path, ['json' => $json]);
