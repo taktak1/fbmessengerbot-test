@@ -126,8 +126,43 @@ $con = substr(  $con , 0  , 300   );
                       
                       
                       
+	
+	
+	
+
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "他の用件はありますか？",
+        "quick_replies" =>  [
+			      	[
+        "content_type"  =>  "text",
+        "title" => "なるほど！"  , 
+        "payload" => "good1"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "おしい！"  , 
+        "payload" => "ok2"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "そもそもメニューが違う"  , 
+        "payload" => "ng3"  ,  ] ,
+
+	]
+                                 ]
+                      ];
                       
+		    
+		    
+                      $client->request('POST', $path, ['json' => $json]);
                       
+		    
+		    
+		    
                       
                       $json = [
                           'recipient' => [
@@ -196,6 +231,7 @@ if(  count(  $items  ) < 5 ){
                               'id' => $from,
                           ],
                           'message' => [
+			              "text"    =>    "OK! ".   $items[0] ."調べます" ,
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
@@ -343,6 +379,8 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                               'id' => $from,
                           ],
                           'message' => [
+			      
+			              "text"    =>    "最新の栄養ニュースはこちらです " ,
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
@@ -472,7 +510,7 @@ for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                               'id' => $from,
                           ],
                           'message' => [
-        "text"    =>    "どの店舗をお探しですか？",
+        "text"    =>    "いくつかありますが、どちらのお店ですか？",
         "quick_replies" =>  [
 	[
         "content_type"  =>  "text",
@@ -522,6 +560,44 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
                       $client->request('POST', $path, ['json' => $json]);
 	
 	
+		
+		
+		
+
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "質問の答えになってましたか？",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => "なるほど！"  , 
+        "payload" => "good1"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "おしい！"  , 
+        "payload" => "ok2"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "ぜんぜんダメ！"  , 
+        "payload" => "ng3"  ,  ] ,
+			      
+	]
+                                 ]
+                      ];
+		
+		
+	
+		
+		
+                      $client->request('POST', $path, ['json' => $json]);
+	
+	
+		
 
                       $json = [
                           'recipient' => [
