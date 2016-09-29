@@ -231,7 +231,7 @@ if(  count(  $items  ) < 5 ){
                               'id' => $from,
                           ],
                           'message' => [
-			              "text"    =>    "OK! ".   $items[0] ."調べます" ,
+//			      "text"    =>    "OK! ".   $items[0] ."調べます" ,
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
@@ -380,7 +380,7 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                           ],
                           'message' => [
 			      
-			              "text"    =>    "最新の栄養ニュースはこちらです " ,
+//			              "text"    =>    "最新の栄養ニュースはこちらです " ,
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
