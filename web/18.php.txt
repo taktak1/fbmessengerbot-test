@@ -1,3 +1,4 @@
+
 <?php
 require('../vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
@@ -98,7 +99,7 @@ $con = substr(  $con , 0  , 300   );
                               'id' => $from,
                           ],
                           'message' => [
-        "text"    =>    "他の用件はありますか？",
+        "text"    =>    "アドバイスになりましたか？",
         "quick_replies" =>  [
 			      	[
         "content_type"  =>  "text",
@@ -124,40 +125,6 @@ $con = substr(  $con , 0  , 300   );
                       
 		    
 		    
-		    
-                      
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-        "text"    =>    "他の用件はありますか？",
-        "quick_replies" =>  [
-	[
-        "content_type"  =>  "text",
-        "title" => "メニューを探す"  , 
-        "payload" => "menu1"  ,  ] ,
-	
-	[
-        "content_type"  =>  "text",
-        "title" => "栄養アドバイス"  , 
-        "payload" => "advice2"  ,  ] ,
-	
-	[
-        "content_type"  =>  "text",
-        "title" => "Ｑ＆Ａ"  , 
-        "payload" => "diagnosis3"  ,  ] ,
-	[
-        "content_type"  =>  "text",
-        "title" => "ニュース"  , 
-        "payload" => "news4"  ,  ] ,
-	]
-                                 ]
-                      ];
-	
-	
-	
-	                      $client->request('POST', $path, ['json' => $json]);
                       
                       
             }
@@ -182,7 +149,7 @@ if(  count(  $items  ) < 5 ){
                               'id' => $from,
                           ],
                           'message' => [
-			              "text"    =>    "OK! ".   $items[0] ."調べます" ,
+//			      "text"    =>    "OK! ".   $items[0] ."調べます" ,
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
@@ -330,7 +297,7 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                           ],
                           'message' => [
 			      
-			              "text"    =>    "最新の栄養ニュースはこちらです " ,
+//			              "text"    =>    "最新の栄養ニュースはこちらです " ,
                                'attachment' =>  [
 				      'type'  =>  'template'   ,
 				      'payload'  => [
@@ -625,3 +592,4 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
     return 0;
 });
 $app->run();
+
