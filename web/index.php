@@ -554,16 +554,11 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 	]
                                  ]
                       ];
-		
-		
-	
-		
+
+/*
 		
                       $client->request('POST', $path, ['json' => $json]);
 	
-	
-		
-
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -592,10 +587,8 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 	]
                                  ]
                       ];
-	
-	
-}
-	
+	}
+	*/
                       
                       
 }else{
