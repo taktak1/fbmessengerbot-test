@@ -1,4 +1,4 @@
-<?php
+-<?php
 require('../vendor/autoload.php');
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -517,7 +517,7 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 	
 	
 	if(strpos($message, "店を探すことがことができませんでした") !== false){
-	if(strpos($message, "ちらのお店のメニューを") !== false){
+	}else if(strpos($message, "ちらのお店のメニューを") !== false){
 }else if(strpos($message, "真を送ってくださ") !== false){
 }else if(strpos($message, "問をどうぞ") !== false){
 	}else{
