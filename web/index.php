@@ -505,6 +505,7 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 
 	
 }else if(  1 <  strlen(  $message )  ){
+	
                       $json = [
                           'recipient' => [
                               'id' => $from,
@@ -554,7 +555,7 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
                                  ]
                       ];
 
-/*
+		
 		
                       $client->request('POST', $path, ['json' => $json]);
 	
@@ -586,12 +587,11 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 	]
                                  ]
                       ];
-	*/
+		
                       
 	}
                       
 }else{
-	
 	
                       $json = [
                           'recipient' => [
@@ -621,12 +621,6 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 	]
                                  ]
                       ];
-	
-	
-	
-	
-	
-	
 	
 	
 }
