@@ -556,36 +556,6 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 
 		
 		
-                      $client->request('POST', $path, ['json' => $json]);
-	
-                      $json = [
-                          'recipient' => [
-                              'id' => $from,
-                          ],
-                          'message' => [
-        "text"    =>    "他の用件はありますか？",
-        "quick_replies" =>  [
-	[
-        "content_type"  =>  "text",
-        "title" => "メニューを探す"  , 
-        "payload" => "menu1"  ,  ] ,
-	
-	[
-        "content_type"  =>  "text",
-        "title" => "栄養アドバイス"  , 
-        "payload" => "advice2"  ,  ] ,
-	
-	[
-        "content_type"  =>  "text",
-        "title" => "Ｑ＆Ａ"  , 
-        "payload" => "diagnosis3"  ,  ] ,
-	[
-        "content_type"  =>  "text",
-        "title" => "ニュース"  , 
-        "payload" => "news4"  ,  ] ,
-	]
-                                 ]
-                      ];
 		      
                       
 	}
