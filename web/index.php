@@ -602,8 +602,6 @@ for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	$items = explode(",", $message);
 	
 	
-	
-	
  if(  2 <=  count(  $items  )  ){ 
 	 
                       $json = [
@@ -617,11 +615,10 @@ for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         "content_type"  =>  "text",
         "title" => $items[0]  , 
         "payload" => $items[0]  ,  ] ,
-	]               ]           ];
-                      
+	]
+		      ]
+		      ];
 	 
-	 
-                      
 for(  $i = 1  ; $i+1 <=  count(  $items  ) ;    $i+= 1 ){ 
 	
 	$json['message']['quick_replies'][] = [
@@ -632,7 +629,6 @@ for(  $i = 1  ; $i+1 <=  count(  $items  ) ;    $i+= 1 ){
 	 
  }
 	 
-	
  }
 	
 	
