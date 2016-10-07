@@ -463,6 +463,123 @@ for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	
 	
 	
+ }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}else if(preg_match("/^@@ /",$message)){
+	$message = substr( $message , 3 );
+	$items = explode(",", $message);
+	
+	
+ if(  4 <=  count(  $items  )  ){ 
+ 	
+	 
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'attachment' =>  [
+				      'type'  =>  'template'   ,
+				      'payload'  => [
+        "template_type" => "generic",
+        "elements" =>  [
+                    	[
+        		"title"=> $items[0]  ,
+        		"image_url"=>  $items[1]  , 
+        		"subtitle"=>  $items[3]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> $items[2]     ,
+		            "title"=> "レシピを見る" 
+		            ]
+        		],
+        		],
+        		]
+        		]
+        		]
+        		]
+        		];
+        		
+	 
+	 
+for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
+	$json['message']['attachment']['payload']['elements'][] = 	[
+        		"title"=> $items[ $i ]  ,
+        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[ $i+1 ]  , 
+        		"subtitle"=>  $items[ $i+3 ]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+        		    "url"=> $items[ $i+2 ]  ,
+		            "title"=> "レシピを見る" 
+		            ],
+		
+        		],
+                        ];
+}
+
+	 
+	 
+	 
+	 
+	
+	
+                      $client->request('POST', $path, ['json' => $json]);
+	
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "他の用件はありますか？",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => "メニューを探す"  , 
+        "payload" => "menu1"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "栄養アドバイス"  , 
+        "payload" => "advice2"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "Ｑ＆Ａ"  , 
+        "payload" => "diagnosis3"  ,  ] ,
+	[
+        "content_type"  =>  "text",
+        "title" => "ニュース"  , 
+        "payload" => "news4"  ,  ] ,
+	[
+        "content_type"  =>  "text",
+        "title" => "レシピ"  , 
+        "payload" => "recipe5"  ,  ] ,
+	]
+                                 ]
+                      ];
+	
+	
+	
+	
+	
 	
 	
  	
@@ -470,6 +587,53 @@ for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}else if(preg_match("/^\*\* /",$message)){
+	$message = substr( $message , 3 );
+	$items = explode(",", $message);
+	
+	
+	
+	
+ if(  2 <=  count(  $items  )  ){ 
+	 
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "どの食材のレシピにしますか？",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => $items[0]  , 
+        "payload" => $items[0]  ,  ] ,
+	]               ]           ];
+                      
+	 
+	 
+                      
+for(  $i = 1  ; $i+1 <=  count(  $items  ) ;    $i+= 1 ){ 
+	
+	$json['message']['quick_replies'][] = [
+        "content_type"  =>  "text",
+        "title" => $items[ $i ]  , 
+        "payload" => $items[ $i ]  ,
+		];
+	 
+ }
+	 
+	
+ }
 	
 	
 }else if(preg_match("/^;@ /",$message)){
