@@ -213,11 +213,7 @@ if(  count(  $items  ) < 5 ){
         		    "url"=> "https://bot-sample.mealthy.me/",
 		            "title"=> "Mealthyで他を検索する" 
 		            ],
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "me.mealthy://",
-		            "title"=> "Mealthy起動" 
-		            ],
+			      
         		],
         		],
         		
