@@ -262,37 +262,15 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
                               'id' => $from,
                           ],
                           'message' => [
-        "text"    =>    "他の用件はありますか？",
+        "text"    =>    "他のお店のメニューを探しますか？",
         "quick_replies" =>  [
 	[
         "content_type"  =>  "text",
-        "title" => "メニューを探す"  , 
-        "payload" => "menu1"  ,  ] ,
-	
-	[
-        "content_type"  =>  "text",
-        "title" => "栄養アドバイス"  , 
-        "payload" => "advice2"  ,  ] ,
-	
-	[
-        "content_type"  =>  "text",
-        "title" => "Ｑ＆Ａ"  , 
-        "payload" => "diagnosis3"  ,  ] ,
-	[
-        "content_type"  =>  "text",
-        "title" => "ニュース"  , 
-        "payload" => "news4"  ,  ] ,
-	[
-        "content_type"  =>  "text",
-        "title" => "レシピ"  , 
-        "payload" => "recipe5"  ,  ] ,
+        "title" => "スタート画面に戻る"  , 
+        "payload" => "start0" ,  ] ,
 	]
                                  ]
                       ];
-	
-	
-	
-	
 	
 	
 	
