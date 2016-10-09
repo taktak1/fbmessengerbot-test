@@ -661,6 +661,43 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 }else if(strpos($message, "のお店のメニューはまだありません。もう一度、店名を入力") !== false){
 }else if(strpos($message, "に何かご用件はあります") !== false){
 
+	      
+                      $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+        "text"    =>    "他の用件はありますか？",
+        "quick_replies" =>  [
+	[
+        "content_type"  =>  "text",
+        "title" => "メニューを探す"  , 
+        "payload" => "menu1"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "栄養アドバイス"  , 
+        "payload" => "advice2"  ,  ] ,
+	
+	[
+        "content_type"  =>  "text",
+        "title" => "Ｑ＆Ａ"  , 
+        "payload" => "diagnosis3"  ,  ] ,
+	[
+        "content_type"  =>  "text",
+        "title" => "ニュース"  , 
+        "payload" => "news4"  ,  ] ,
+	[
+        "content_type"  =>  "text",
+        "title" => "レシピ"  , 
+        "payload" => "recipe5"  ,  ] ,
+	]
+                                 ]
+                      ];
+	
+	
+	
+	      
 		
 	}else{
                       
