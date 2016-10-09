@@ -237,11 +237,6 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		    "url"=> "https://bot-sample.mealthy.me/",
 		            "title"=> "Mealthyで他を検索する" 
 		            ],
-        			[
-        			"type"=> "web_url",
-        		    "url"=> "me.mealthy://",
-		            "title"=> "Mealthy起動" 
-		            ],
         		],
                         ];
 }
@@ -663,7 +658,8 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 }else if(strpos($message, "真を送ってくださ") !== false){
 }else if(strpos($message, "問をどうぞ") !== false){
 }else if(strpos($message, "の食材のレシピにします") !== false){
-		
+}else if(strpos($message, "のお店のメニューはまだありません。もう一度、店名を入力") !== false){
+
 		
 	}else{
                       
