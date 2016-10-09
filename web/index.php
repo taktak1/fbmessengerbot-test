@@ -653,12 +653,13 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
                       
 	
 	
-	if(strpos($message, "店を探すことがことができませんでした") !== false){
-	}else if(strpos($message, "ちらのお店のメニューを") !== false){
+      if(strpos($message, "店を探すことがことができませんでした") !== false){
+}else if(strpos($message, "ちらのお店のメニューを") !== false){
 }else if(strpos($message, "真を送ってくださ") !== false){
 }else if(strpos($message, "問をどうぞ") !== false){
 }else if(strpos($message, "の食材のレシピにします") !== false){
 }else if(strpos($message, "のお店のメニューはまだありません。もう一度、店名を入力") !== false){
+}else if(strpos($message, "に何かご用件はあります") !== false){
 
 		
 	}else{
