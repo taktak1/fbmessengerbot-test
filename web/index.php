@@ -7,7 +7,6 @@ use GuzzleHttp\Client;
 
 
 
-
 function http_get($url, $data) {
     $params = "";
     foreach ($data as $k => $v) {
@@ -652,7 +651,7 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
                       ];
                       
 	
-	
+
       if(strpos($message, "店を探すことがことができませんでした") !== false){
 }else if(strpos($message, "ちらのお店のメニューを") !== false){
 }else if(strpos($message, "真を送ってくださ") !== false){
