@@ -99,8 +99,6 @@ $attachment = urlencode( $attachment );
     */
     
     
-    
-    
     /*
 $con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
@@ -108,10 +106,10 @@ $con = substr(  $con , 0  , 300   );
 		    
 		    
 		    
+		    
 		 $items = explode("|", $body);
-
+		    
 		    for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
-
                        $json = [
                           'recipient' => [
                               'id' => $from,
@@ -121,12 +119,9 @@ $con = substr(  $con , 0  , 300   );
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
-
 		    }
                       
                       
-                      
-		    
 		    
 
                       $json = [
