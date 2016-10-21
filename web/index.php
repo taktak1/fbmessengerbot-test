@@ -62,10 +62,6 @@ $app->get('/callback', function (Request $request) use ($app) {
 
 
 
-
-
-
-
 $app->post('/callback', function (Request $request) use ($app) {
     // Let's hack from here!
     $body = json_decode($request->getContent(), true);
@@ -81,11 +77,8 @@ $app->post('/callback', function (Request $request) use ($app) {
             $quick_reply = $m['message']['quick_reply']['payload'];
 
             if(    $from    == '1464024910511356'  ){  continue;  }
-            
-            
-            
-            
-            
+		
+		
             if ($attachment) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
 $attachment = str_replace('\\', '', $attachment );
@@ -112,22 +105,29 @@ $attachment = urlencode( $attachment );
 $con   = (    $body   ) ;
 $con = substr(  $con , 0  , 300   );
 */
+		    
+		    
+		    
+		 $items = explode("|", $body);
+
+		    for(  $i = 0 ; $i count(  $items  ) ;    $i++ ){ 
+
                        $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' => $body ,
+                               'text' => $items[$i] ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
+
+		    }
                       
                       
                       
-                      
-	
-	
-	
+		    
+		    
 
                       $json = [
                           'recipient' => [
