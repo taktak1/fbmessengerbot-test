@@ -111,12 +111,14 @@ $con = substr(  $con , 0  , 300   );
 		    
 //		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
 		    for(  $i = 0 ; $i <  2 ;    $i++ ){ 
+			    $itext = substr( $items[$i]  , 0 , 300 );
+			    
                        $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' =>  substr( $items[$i]  , 0 , 300 ),
+                               'text' =>  $itext   ,
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
