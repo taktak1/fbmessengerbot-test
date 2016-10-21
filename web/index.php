@@ -256,7 +256,7 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         "quick_replies" =>  [
 	[
         "content_type"  =>  "text",
-        "title" => "スタート画面に戻る"  , 
+        "title" => "チャンネルを表示"  , 
         "payload" => "start0" ,  ] ,
 	]
                                  ]
