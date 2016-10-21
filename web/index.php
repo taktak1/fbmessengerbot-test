@@ -110,7 +110,7 @@ $con = substr(  $con , 0  , 300   );
 		    
 		 $items = explode("|", $body);
 
-		    for(  $i = 0 ; $i count(  $items  ) ;    $i++ ){ 
+		    for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
 
                        $json = [
                           'recipient' => [
