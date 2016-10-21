@@ -109,8 +109,8 @@ $con = substr(  $con , 0  , 300   );
 		    
 		 $items = explode( '|' , $body);
 		    
-		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
-//		    for(  $i = 0 ; $i <  1 ;    $i++ ){ 
+//		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
+		    for(  $i = 0 ; $i <  2 ;    $i++ ){ 
 			    $itext = substr( $items[$i]  , 0 , 300 );
 			    
                        $json = [
