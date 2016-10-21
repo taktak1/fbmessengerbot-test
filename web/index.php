@@ -110,13 +110,13 @@ $con = substr(  $con , 0  , 300   );
 		 $items = explode( '|' , $body);
 		    
 //		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
-		    for(  $i = 0 ; $i <  1 ;    $i++ ){ 
+		    for(  $i = 0 ; $i <  2 ;    $i++ ){ 
                        $json = [
                           'recipient' => [
                               'id' => $from,
                           ],
                           'message' => [
-                               'text' => $items[$i] ,
+                               'text' =>  substr( $items[$i]  , 0 , 300 ),
                                ],
                       ];
                       $client->request('POST', $path, ['json' => $json]);
