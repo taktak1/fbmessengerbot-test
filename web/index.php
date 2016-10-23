@@ -466,7 +466,7 @@ for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         "template_type" => "generic",
         "elements" =>  [
                     	[
-        		"title"=>   (  $items[0] +","+ count(  $items  ) )   ,
+        		"title"=>    $items[0]    ,
         		"image_url"=>  $items[1]  , 
         		"subtitle"=>  $items[3]     ,
         		"buttons"=> [
@@ -487,7 +487,7 @@ for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
 for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	$json['message']['attachment']['payload']['elements'][] = 	[
         		"title"=> $items[ $i ]  ,
-        		"image_url"=> "http://static.mealthy.me/uploads/menu/image/".  $items[ $i+1 ]  , 
+        		"image_url"=>  $items[ $i+1 ]  , 
         		"subtitle"=>  $items[ $i+3 ]     ,
         		"buttons"=> [
         			[
