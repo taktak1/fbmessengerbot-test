@@ -90,7 +90,8 @@ $attachment = urlencode( $attachment );
         CURLOPT_SSL_VERIFYPEER => false,
     ));
     $body  = curl_exec(  $ch  );
-
+    $body =  trim(    $body   );
+		    
 /*
     $result = json_decode($body, true); 
     $body  =   $result['candidates'][0]['tag']   ." ".     ( $result['candidates'][0]['score'] *100  )."%   "     ;
@@ -175,7 +176,7 @@ $con = substr(  $con , 0  , 300   );
             if ($text) {
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN') );
 $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=".  urlencode( $text )     );
-
+$message = trim(   $message   );
 //			    $message = substr( $message , 0 , 312 );
 
 
