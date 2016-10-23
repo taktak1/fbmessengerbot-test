@@ -111,7 +111,7 @@ $con = substr(  $con , 0  , 300   );
 		    
 //		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
 		    for(  $i = 0 ; $i <  1 ;    $i++ ){ 
-			    $itext = substr( $items[$i]  , 0 , 300 );
+			    $itext = substr( $items[$i]  , 0 , 312 );
 			    
                        $json = [
                           'recipient' => [
@@ -638,6 +638,11 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 
 	
 }else if(  1 <  strlen(  $message )  ){
+	
+		 $message = substr( $message  , 0 , 312 );
+	
+	
+	
                       $json = [
                           'recipient' => [
                               'id' => $from,
