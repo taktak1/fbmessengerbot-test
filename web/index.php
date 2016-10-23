@@ -466,7 +466,7 @@ for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         "template_type" => "generic",
         "elements" =>  [
                     	[
-        		"title"=>   (  $items[0] +","+ count(  $items  )    ,
+        		"title"=>   (  $items[0] +","+ count(  $items  ) )   ,
         		"image_url"=>  $items[1]  , 
         		"subtitle"=>  $items[3]     ,
         		"buttons"=> [
