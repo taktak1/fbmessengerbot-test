@@ -176,7 +176,7 @@ $con = substr(  $con , 0  , 300   );
                 $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN') );
 $message  = file_get_contents( getenv('rmr_key')    ."?id=".  $from  ."&text=".  urlencode( $text )     );
 
-			    $message = substr( $message , 0 , 312 );
+//			    $message = substr( $message , 0 , 312 );
 
 
 
