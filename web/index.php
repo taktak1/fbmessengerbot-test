@@ -113,7 +113,7 @@ $con = substr(  $con , 0  , 300   );
 //		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
 		    for(  $i = 0 ; $i <  1 ;    $i++ ){ 
 			    $itext = substr( $items[$i]  , 0 , 312 );
-			    
+ 			        $itext =trim( $itext );
                        $json = [
                           'recipient' => [
                               'id' => $from,
