@@ -99,10 +99,18 @@ $attachment = urlencode( $attachment );
 $con = substr(  $con , 0  , 300   );*/
 		    
 		 $items = explode( '|' , $body);
-//		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
-		    for(  $i =1 ; $i < 2 ; $i++ ){ 
-			    $itext = substr( $items[$i]  , 0 , 312 );
- 			        $itext =trim( $itext );
+		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
+//		    for(  $i =1 ; $i < 2 ; $i++ ){ 
+			         $items[$i] =  trim(    $items[$i]   );
+
+ 		 $itemi = explode( '。' ,  $items[$i]  );
+			     
+		     for(  $ii = 0 ; $ii <  count(  $itemi  ) ;    $ii++ ){ 
+			     
+//			    $itext = substr( $items[$i]  , 0 , 312 );
+ 			        $itext =trim( $itemi[$i]   );
+			     
+			     if(  2 < strlen($itext)    ){
                        $json = [
                           'recipient' => [
                               'id' => $from,
@@ -110,12 +118,12 @@ $con = substr(  $con , 0  , 300   );*/
                           'message' => [
                                'text' =>  $itext   ,
                                ],
-                      ];
+                      ];  
                       $client->request('POST', $path, ['json' => $json]);
+			     }
+			     
 		    }
-                      
-	    
-		    
+		     }
 
                       $json = [
                           'recipient' => [
