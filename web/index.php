@@ -59,9 +59,6 @@ $app->get('/callback', function (Request $request) use ($app) {
 
 
 
-
-
-
 $app->post('/callback', function (Request $request) use ($app) {
     // Let's hack from here!
     $body = json_decode($request->getContent(), true);
@@ -98,20 +95,12 @@ $attachment = urlencode( $attachment );
     $body  =   $result['candidates'][1]['tag']   ." ".     ( $result['candidates'][1]['score'] *100  )."%   "     ;
     $body  =   $result['candidates'][2]['tag']   ." ".     ( $result['candidates'][2]['score'] *100  )."%"     ;
     */
-    
-    
-    /*
-$con   = (    $body   ) ;
-$con = substr(  $con , 0  , 300   );
-*/
-		    
-		    
-		    
+    /*$con   = (    $body   ) ;
+$con = substr(  $con , 0  , 300   );*/
 		    
 		 $items = explode( '|' , $body);
-		    
 //		     for(  $i = 0 ; $i <  count(  $items  ) ;    $i++ ){ 
-		    for(  $i = 0 ; $i < 1 ; $i++ ){ 
+		    for(  $i =1 ; $i < 2 ; $i++ ){ 
 			    $itext = substr( $items[$i]  , 0 , 312 );
  			        $itext =trim( $itext );
                        $json = [
