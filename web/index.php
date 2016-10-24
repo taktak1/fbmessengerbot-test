@@ -108,7 +108,7 @@ $con = substr(  $con , 0  , 300   );*/
 		     for(  $ii = 0 ; $ii <  count(  $itemi  ) ;    $ii++ ){ 
 			     
 //			    $itext = substr( $items[$i]  , 0 , 312 );
- 			        $itext =trim( $itemi[$i]   );
+ 			        $itext =trim( $itemi[$ii]   );
 			     
 			     if(  2 < strlen($itext)    ){
                        $json = [
@@ -637,9 +637,33 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
 	
 }else if(  1 <  strlen(  $message )  ){
 	
-		 $message = substr( $message  , 0 , 312 );
 	
 	
+	
+	
+	
+	
+	
+	/*
+//		 $message = substr( $message  , 0 , 312 );
+	
+ 		 $itemi = explode( '。' ,  $message  );
+		     for(  $ii = 0 ; $ii <  count(  $itemi  ) ;    $ii++ ){ 
+ 			        $itext =trim( $itemi[$ii]   );
+			     
+			     if(  2 < strlen($itext)    ){
+                       $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'text' =>  $itext   ,
+                               ],
+                      ];  
+                      $client->request('POST', $path, ['json' => $json]);
+				     */
+				     
+				     
 	
                       $json = [
                           'recipient' => [
@@ -702,10 +726,34 @@ for(  $i = 2  ; $i+2 <=  count(  $items  ) ;    $i+= 2 ){
                       
 	
 		
+ $itemi = explode( '。' ,  $message  );
+for(  $ii = 0 ; $ii <  count(  $itemi  ) ;    $ii++ ){ 
+	$itext =trim( $itemi[$ii]   );
+	 if(  2 < strlen($itext)    ){
+				     
+                       $json = [
+                          'recipient' => [
+                              'id' => $from,
+                          ],
+                          'message' => [
+                               'text' =>  $itext   ,
+                               ],
+                      ];  
+		$client->request('POST', $path, ['json' => $json]);
+	 }
+}				     
+	      
 		
-		
-                      $client->request('POST', $path, ['json' => $json]);
+//                      $client->request('POST', $path, ['json' => $json]);
 	
+	      
+	      
+	      
+	      
+	      
+	      
+	      
+	      
                       $json = [
                           'recipient' => [
                               'id' => $from,
