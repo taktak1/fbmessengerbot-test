@@ -333,33 +333,6 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		],
         		],
         		
-                    	[
-        		"title"=> $items[4]  ,
-        		"image_url"=>  $items[7]  , 
-        		"subtitle"=>  $items[5]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> $items[6]     ,
-		            "title"=> "この記事を読む" 
-		            ]
-        		],
-        		],
-        		
-                    	[
-        		"title"=> $items[8]  ,
-        		"image_url"=>  $items[11]  , 
-        		"subtitle"=>  $items[9]     ,
-        		"buttons"=> [
-        			[
-        			"type"=> "web_url",
-        		    "url"=> $items[10]     ,
-		            "title"=> "この記事を読む" 
-		            ]
-        		],
-        		],
-        		
-        		
         		]
         		]
         		]
@@ -367,6 +340,31 @@ for(  $i = 5  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){
         		];
         		
  	
+	 
+for(  $i = 4  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
+	
+	$json['message']['attachment']['payload']['elements'][] = 	[
+        		"title"=> $items[$i]  ,
+        		"image_url"=>  $items[$i + 3]  , 
+         		"subtitle"=>  $items[$i + 1]     ,
+        		"buttons"=> [
+        			[
+        			"type"=> "web_url",
+         		    "url"=> $items[$i + 2 ]     ,
+		            "title"=> "この記事を読む" 
+		            ]
+        		],
+                        ];
+}
+
+	
+	 
+	 
+	 
+	 
+	 
+	 
+	 
  	/*
 for(  $i = 12  ; $i+4 <=  count(  $items  ) ;    $i+= 4   ){ 
 	
